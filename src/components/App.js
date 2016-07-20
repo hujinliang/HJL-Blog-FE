@@ -6,11 +6,14 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as Actions from '../actions'
 import ScrollTop from '../components/ScrollTop'
+import Toaster from '../components/Toaster'
+
 
 const mapStateToProps = state => {
     // console.log(state.globalVal.toJS())
     return {
-        globalVal:state.globalVal.toJS()
+        globalVal:state.globalVal.toJS(),
+        showmsg:state.showmsg.toJS()
     }
 };
 
@@ -45,8 +48,9 @@ export default class App extends React.Component{
     render(){
         // console.log(this.props)
         return (
-            <div>
+            <div style={{height:'2000px'}}>
                 <button onClick={this.props.actions.changeStyleMode}>change</button>
+                <ScrollTop />
             </div>
         )
     }
