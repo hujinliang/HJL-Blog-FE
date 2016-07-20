@@ -4,14 +4,16 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {Router,browserHistory} from 'react-router'
+import {syncHistoryWithStore} from 'react-router-redux'
 import {Provider} from 'react-redux'
 import routes from './routes'
 // import 'font-awesome/css/font-awesome.css'
 import 'bootstrap/dist/css/bootstrap.css'
-// import './stylesheets/index.css'
+import './stylesheets/index.css'
 import configureStore from './store/configureStore'
 
-var store = configureStore();
+var store = configureStore(browserHistory);
+// var history = syncHistoryWithStore(browserHistory,store);
 
 render(
     <Provider store={store}>

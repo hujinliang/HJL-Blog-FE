@@ -7,8 +7,8 @@ import {routerMiddleware} from 'react-router-redux'
 import {Iterable} from 'immutable'
 import reducer from '../reducers'
 
-export default function configureStore(){
-    let middleware = [thunkMiddleware]
+export default function configureStore(history){
+    let middleware = [thunkMiddleware,routerMiddleware(history)];
     let finalCreateStore;
     finalCreateStore = compose(applyMiddleware(...middleware));
     const store = finalCreateStore(createStore)(reducer);

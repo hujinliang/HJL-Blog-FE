@@ -30,7 +30,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loaders: ['react-hot','babel?presets[]=react,presets[]=es2015']
+                loaders: ['react-hot','babel?presets[]=react,presets[]=es2015,plugins[]=transform-decorators-legacy,plugins[]=syntax-async-functions'],
             },
             {
                 test: /.scss$/,

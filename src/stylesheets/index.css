@@ -1,8 +1,8 @@
 @charset "UTF-8";
-.sort-sprite, .icon-sort-desc, .icon-sort-desc-disabled, .icon-sort-asc, .icon-sort-asc-disabled, .icon-sort-both {
-  background-image: url('./assets/images/sort-s0f57be200a.png');
-  background-repeat: no-repeat;
-}
+/*.sort-sprite, .icon-sort-desc, .icon-sort-desc-disabled, .icon-sort-asc, .icon-sort-asc-disabled, .icon-sort-both {*/
+  /*background-image: url('./assets/images/sort-s0f57be200a.png');*/
+  /*background-repeat: no-repeat;*/
+/*}*/
 
 .icon-sort-desc {
   background-position: 0 -116px;
@@ -400,15 +400,15 @@ input.ng-valid.ng-dirty {
     padding-bottom: 5px;
   }
 }
-.navbar-box a.expanded-var {
-  display: block;
-  background-image: url("./assets/images/icons.png");
-  background-repeat: no-repeat;
-  -moz-background-origin: content;
-  -o-background-origin: content-box;
-  -webkit-background-origin: content;
-  background-origin: content-box;
-}
+/*.navbar-box a.expanded-var {*/
+  /*display: block;*/
+  /*background-image: url("./assets/images/icons.png");*/
+  /*background-repeat: no-repeat;*/
+  /*-moz-background-origin: content;*/
+  /*-o-background-origin: content-box;*/
+  /*-webkit-background-origin: content;*/
+  /*background-origin: content-box;*/
+/*}*/
 
 @media (min-width: 768px) {
   .navbar-skin {
