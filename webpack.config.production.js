@@ -20,8 +20,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     
-    entry: ["webpack-dev-server/client?http://localhost:3000",
-        "webpack/hot/only-dev-server",'./src/index.js'],
+    entry: ['./src/index.js'],
 
 
     
@@ -30,7 +29,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loaders: ['react-hot','babel?presets[]=react,presets[]=es2015,presets[]=stage-0,presets[]=react-hmre,plugins[]=transform-decorators-legacy,plugins[]=syntax-async-functions'],
+                loaders: ['babel?presets[]=react,presets[]=es2015,presets[]=stage-0,plugins[]=transform-decorators-legacy,plugins[]=syntax-async-functions'],
             },
             {
                 test: /.scss$/,
@@ -65,7 +64,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             'process.env':{
                 'NODE_ENV': JSON.stringify('development')

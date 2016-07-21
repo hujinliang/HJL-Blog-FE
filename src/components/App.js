@@ -7,13 +7,15 @@ import {connect} from 'react-redux'
 import * as Actions from '../actions'
 import ScrollTop from '../components/ScrollTop'
 import Toaster from '../components/Toaster'
+import Header from '../components/Header'
 
 
 const mapStateToProps = state => {
     // console.log(state.globalVal.toJS())
     return {
         globalVal:state.globalVal.toJS(),
-        showmsg:state.showmsg.toJS()
+        showmsg:state.showmsg.toJS(),
+        auth:state.auth.toJS()
     }
 };
 
@@ -38,25 +40,21 @@ export default class App extends React.Component{
     
     componentWillReceiveProps(nextProps){
         const {globalVal} = this.props;
-        console.log(globalVal)
+
         if(globalVal.styleMode !== nextProps.globalVal.styleMode)
         {
             document.body.className = nextProps.globalVal.styleMode
         }    
     }
-    test(){
-        const {actions} = this.props;
-        actions.showMsg('haha','info')
-    }
     
     render(){
-        // console.log(this.props)
-        const {showmsg,globalval,actions,children,location,auth} = this.props;
+      
+        const {showmsg,globalVal,actions,children,location,auth} = this.props;
         return (
             <div style={{height:'2000px'}}>
+                {children}
+                <Header styleMode={globalVal.styleMode} changeStyleMode={actions.changeStyleMode} location={location} auth={auth} logout={actions.logout}/>
                 <Toaster msg={showmsg} hideMsg={actions.hideMsg} />
-                <button onClick={this.props.actions.changeStyleMode}>change</button>
-                <button onClick={this.test.bind(this)}>change2</button>
                 <ScrollTop />
             </div>
         )

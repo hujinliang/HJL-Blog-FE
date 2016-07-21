@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import Alert from 'react-s-alert'
-import {getCookie,removeCookie} from '../../utiles/authService'
+import {getCookie,removeCookie,saveCookie} from '../../utiles/authService'
 
 export default class toaster extends React.Component{
     constructor(props){

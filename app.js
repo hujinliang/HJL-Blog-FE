@@ -8,16 +8,16 @@ var favicon = require('serve-favicon');
 // var serverRender = require('./dist/server.js')
 
 var app = express();
-var port =  process.env.PORT||3000;
+var port =  process.env.PORT||4000;
 
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname)));
 
 app.use(favicon(path.join(__dirname,'public','favicon.jpg')));
 app.set('views',path.join(__dirname,'public'));
 app.set('view engine','ejs')
 
 app.get('/',function(req,res,next){
-    res.sendFile(path.join(__dirname,'public','index.html'))
+    res.sendFile(path.join(__dirname,'index.html'))
 });
 
 app.listen(port,function(err){
