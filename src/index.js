@@ -10,6 +10,7 @@ import routes from './routes'
 // import 'font-awesome/css/font-awesome.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import './stylesheets/index.css'
+import 'react-s-alert/dist/s-alert-default.css'
 import configureStore from './store/configureStore'
 
 var store = configureStore(browserHistory);

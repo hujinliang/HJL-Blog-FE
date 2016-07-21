@@ -9,3 +9,19 @@ export const changeStyleMode = () =>{
         type:types.CHANGE_STYLE_MODE
     }
 };
+
+export const showMsg = (content,type='error') => {
+    return {
+        type:types.SHOW_MSG,
+        message:{
+            content:content,
+            type:type
+        }
+    }
+};
+
+export const hideMsg = () =>{
+    return {
+        type:types.HIDE_MSG
+    }
+}

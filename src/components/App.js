@@ -44,12 +44,19 @@ export default class App extends React.Component{
             document.body.className = nextProps.globalVal.styleMode
         }    
     }
+    test(){
+        const {actions} = this.props;
+        actions.showMsg('haha','info')
+    }
     
     render(){
         // console.log(this.props)
+        const {showmsg,globalval,actions,children,location,auth} = this.props;
         return (
             <div style={{height:'2000px'}}>
+                <Toaster msg={showmsg} hideMsg={actions.hideMsg} />
                 <button onClick={this.props.actions.changeStyleMode}>change</button>
+                <button onClick={this.test.bind(this)}>change2</button>
                 <ScrollTop />
             </div>
         )
