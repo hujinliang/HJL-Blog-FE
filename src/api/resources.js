@@ -6,7 +6,7 @@ import axios from 'axios'
 import {API_ROOT} from '../config'
 import {getCookie,signOut} from '../utiles/authService'
 
-axios.defaults.baseURI = API_ROOT;
+axios.defaults.baseURL = API_ROOT;
 axios.defaults.withCredentials = true;
 
 axios.interceptors.request.use(function(config){
@@ -31,7 +31,7 @@ axios.interceptors.response.use(function(response){
 
 export const UserResource = (method, id, data, api='users') => {
     console.log(axios.defaults.baseURI)
-    return axios[method](API_ROOT+api + (id ? ('/' + id) : ''), data)
+    return axios[method](api + (id ? ('/' + id) : ''), data)
 }
 export const AuthResource = (method, id, data, api='auth') => {
     return axios[method](api + (id ? ('/' + id) : ''), data)

@@ -14,3 +14,32 @@ export const getSnsLogins = ()=>{
         promise:api.getSnsLogins()
     }
 };
+
+export function localLogin(userInfo){
+	return (dispatch,getState) => {
+		return api.localLogin(userInfo)
+		.then(response => ({json:response.data,status:response.statusText}))
+		.then(({json,status}) => {
+
+			if(status != 'OK'){
+				return dispatch(showMsg(json.data.error_msg||'登录失败'));
+			}
+
+			saveCookie('token',json.token);
+			// dispatch(getUserInfo(json.token));
+			dispatch(loginSuccess(json.token));
+			dispatch(showMsg('登录成功','success'));
+			dispatch('/');
+		}).catch(err=>{
+			
+			return dispatch(showMsg('登录失败'))
+		})
+	}
+}
+
+function loginSuccess(token){
+	return{
+		type:types.LOGIN_SUCCESS,
+		token:token
+	}
+}
