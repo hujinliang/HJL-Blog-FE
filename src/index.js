@@ -14,11 +14,14 @@ import 'react-s-alert/dist/s-alert-default.css'
 import configureStore from './store/configureStore'
 
 var store = configureStore(browserHistory);
-// var history = syncHistoryWithStore(browserHistory,store);
+var history = syncHistoryWithStore(browserHistory,store);
+
+
+
 
 render(
     <Provider store={store}>
-        <Router history={browserHistory}>
+        <Router history={history}>
             {routes()}
         </Router>
     </Provider>

@@ -35,7 +35,10 @@ export default class App extends React.Component{
         return [];
     }
     componentDidMount(){
-        
+        let {auth,actions} = this.props;
+        if(auth.token&&!auth.user){
+            actions.getUserInfo();
+        }
     }
     
     componentWillReceiveProps(nextProps){

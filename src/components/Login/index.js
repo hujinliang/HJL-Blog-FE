@@ -79,7 +79,7 @@ export default class Login extends Component{
 
     render(){
         const {sns,fields:{email,password},dirty,invalid} = this.props;
-        console.log(sns)
+
         return (
             <div className="signin-box">
                 <div className="signin-container">

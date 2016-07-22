@@ -4,6 +4,8 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {Dropdown} from 'react-bootstrap'
+import defaultAvatar from '../../assets/imgs/avatar.png'
+
 
 export default class Header extends React.Component{
     constructor(props){
@@ -17,6 +19,7 @@ export default class Header extends React.Component{
     }
     render(){
         const {styleMode,location,auth,logout} = this.props;
+        console.log(auth)
         return (
             <div className="navbar-box navbar-skin">
                 <div className="navbar-menu">
@@ -40,7 +43,7 @@ export default class Header extends React.Component{
                                 <i className="fa fa-sign-out"></i>
                             </a>
                             <Link to="/settings" className="navbar-item expended-avatar">
-                                <img src={auth.user.avatar}/>
+                                <img src={auth.user.avatar || defaultAvatar}/>
                             </Link>
                         </div>
                         :

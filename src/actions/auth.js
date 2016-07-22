@@ -26,12 +26,12 @@ export function localLogin(userInfo){
 			}
 
 			saveCookie('token',json.token);
-			// dispatch(getUserInfo(json.token));
+			dispatch(getUserInfo(json.token));
 			dispatch(loginSuccess(json.token));
 			dispatch(showMsg('登录成功','success'));
-			dispatch('/');
+			dispatch(push('/'));
 		}).catch(err=>{
-			
+			console.log(err)
 			return dispatch(showMsg('登录失败'))
 		})
 	}
@@ -42,4 +42,22 @@ function loginSuccess(token){
 		type:types.LOGIN_SUCCESS,
 		token:token
 	}
+}
+
+export const getUserInfo = (token = getCookie('token'))=> {
+    return {
+        type:types.GET_USERINFO,
+        promise:api.getMe({
+
+        })
+    }
+};
+
+export function logout(){
+    return dispatch => {
+        signOut();
+        dispatch({type:types.LOGOUT_USER});
+        dispatch(push('/'));
+        dispatch(showMsg('登出成功','info'));
+    }
 }

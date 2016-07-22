@@ -54,8 +54,11 @@ module.exports = {
                 loader:'style!css!less'
             },
             {
-                test: /\.(png|jpg|gif)$/,
-                loader: 'url-loader?limit=8192'
+                test: /\.(jpe?g|png|gif)$/i,
+                loaders: [
+                    'url?limit=10000&name=images/[hash:8].[name].[ext]',
+                    'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
+                ]
             },
             {
                 test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
