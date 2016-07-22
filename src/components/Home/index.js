@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as Actions from '../../actions'
 import Sidebar from './sidebar'
+import Tags from './tags'
 
 const mapStateToProps = (state) => {
   return {
@@ -33,9 +34,9 @@ export default class Home extends Component{
         if(tagList.length < 1){
             actions.getTagList()
         }
-        if(articleList.length < 1){
-            actions.getArticleList()
-        }
+        // if(articleList.length < 1){
+        //     actions.getArticleList()
+        // }
     }
 
     handleChange(e,option,isAdd=false){
@@ -52,6 +53,9 @@ export default class Home extends Component{
                 <div className="container-fluid main-box">
                     <div className="row">
                         <Sidebar img={globalVal.indexImg}/>
+                        <div className="col-sm-7 col-sm-offset-3 main-content">
+                            <Tags tagList={tagList}/>
+                        </div>
                     </div>
                 </div>
             </div>

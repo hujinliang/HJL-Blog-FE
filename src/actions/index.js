@@ -3,3 +3,4 @@
  */
 export * from './other'
 export * from './auth'
+export * from './article'
