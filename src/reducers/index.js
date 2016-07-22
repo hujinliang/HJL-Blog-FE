@@ -9,6 +9,7 @@ import globalVal from './globalVal'
 import showmsg from './showmsg'
 import auth from './auth'
 import sns from './sns'
+import tagList from './tagList'
 
 const rootReducer = combineReducers({
     apps,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
     globalVal:globalVal,
     showmsg,
     auth,
-    sns
+    sns,
+    tagList
 })
 
 export default rootReducer
