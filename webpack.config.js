@@ -56,8 +56,7 @@ module.exports = {
             {
                 test: /\.(jpe?g|png|gif)$/i,
                 loaders: [
-                    'url?limit=10000&name=images/[hash:8].[name].[ext]',
-                    'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}'
+                    'url?limit=10000'
                 ]
             },
             {

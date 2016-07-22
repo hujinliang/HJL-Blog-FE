@@ -22,4 +22,19 @@ export function signOut(){
     cookie.remove('token');
 }
 
+export function isLogin(){
+    return !!cookie.load('token')
+}
+
+export function redirectToBack(nextState,replaceState){
+    if(isLogin()){
+        replaceState(null,'/')
+    }
+}
+
+export function redirectToLogin(nextState,replaceState){
+    if(!isLogin()){
+        replaceState(null,'/login')
+    }
+}
 

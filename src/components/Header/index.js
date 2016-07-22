@@ -4,7 +4,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import {Dropdown} from 'react-bootstrap'
-import defaultAvatar from '../../assets/imgs/avatar.png'
+import defaultAvatar from '../../assets/imgs/userimg.png'
 
 
 export default class Header extends React.Component{
@@ -42,7 +42,7 @@ export default class Header extends React.Component{
                             <a href="javascript:" className="navbar-item expanded-logout" onClick={logout}>
                                 <i className="fa fa-sign-out"></i>
                             </a>
-                            <Link to="/settings" className="navbar-item expended-avatar">
+                            <Link to="/setting" className="navbar-item expended-avatar" title={auth.user.nickname}>
                                 <img src={auth.user.avatar || defaultAvatar}/>
                             </Link>
                         </div>
@@ -64,7 +64,7 @@ export default class Header extends React.Component{
                             </a>
                             <Dropdown.Menu className="dropdown-menu">
                                 <li>
-                                    <Link to="/settings"><i className="fa fa-cog"></i> 设置</Link>
+                                    <Link to="/setting"><i className="fa fa-cog"></i> 设置</Link>
                                 </li>
                                 <li className="divider"></li>
                                 <li>

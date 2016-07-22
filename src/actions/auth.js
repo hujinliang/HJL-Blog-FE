@@ -61,3 +61,27 @@ export function logout(){
         dispatch(showMsg('登出成功','info'));
     }
 }
+
+export function updateUser(userInfo){
+    return (dispatch,getState) => {
+        return api.mdUser(userInfo)
+            .then(response => ({json:response.data,status:response.statusText}))
+            .then(({json,status}) => {
+                debugger;
+                if(status !== 'OK'){
+                    return dispatch(showMsg(json.data&&json.data.error_msg||'更新失败'))
+                }
+                dispatch(showMsg('更新成功','success'));
+                return dispatch(successUpdateUser(json.data))
+            }).catch(err => {
+                return dispatch(showMsg('发生错误，更新失败'))
+            })
+    }
+}
+
+function successUpdateUser(user) {
+    return {
+        type: types.UPDATE_USER_SUCCESS,
+        user:user
+    }
+}
