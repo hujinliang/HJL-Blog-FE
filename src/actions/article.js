@@ -19,7 +19,7 @@ export const changeOptions = (option) => {
     }
 };
 
-export const getArticleList = (isAdd = true) => {
+export const getArticleList = (isAdd) => {
     return (dispatch,getState) => {
         const options = getState().options.toJS();
         return dispatch({

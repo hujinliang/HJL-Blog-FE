@@ -8,6 +8,7 @@ import * as Actions from '../../actions'
 import Sidebar from './sidebar'
 import Tags from './tags'
 import Articles from './article'
+import Footer from './footer'
 
 const mapStateToProps = (state) => {
 
@@ -29,6 +30,7 @@ const mapDispatchToProps = dispatch => {
 export default class Home extends Component{
     constructor(props){
         super(props);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount(){
@@ -50,18 +52,18 @@ export default class Home extends Component{
 
     render(){
         const {globalVal,tagList,articleList,options} = this.props;
-        console.log(tagList);
-        console.log(articleList)
+       
         return (
             <div>
                 <div className="container-fluid main-box">
                     <div className="row">
                         <Sidebar img={globalVal.indexImg}/>
                         <div className="col-sm-7 col-sm-offset-3 main-content">
-                            <Tags tagList={tagList}/>
+                            <Tags tagList={tagList} options={options} isFetching={articleList.isFetching} changeSort={this.handleChange}/>
                             <Articles articleList={articleList.items}/>
                         </div>
                     </div>
+                    <Footer />
                 </div>
             </div>
         )

@@ -19,7 +19,7 @@ export default class Header extends React.Component{
     }
     render(){
         const {styleMode,location,auth,logout} = this.props;
-        console.log(auth)
+        // console.log(auth)
         return (
             <div className="navbar-box navbar-skin">
                 <div className="navbar-menu">

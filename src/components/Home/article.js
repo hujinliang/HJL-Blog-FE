@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import {Link} from 'react-router'
+import {customTime} from '../../utiles'
 
 export default class Articles extends React.Component{
     constructor(props){
@@ -18,7 +19,7 @@ export default class Articles extends React.Component{
                         <li key={i} className="article-item">
                             <div>
                                 <p className="list-top">
-                                    <span className="item">{article.created}</span>
+                                    <span className="item">{customTime(article.created)}</span>
                                 </p>
                                 <h4 className="title">
                                     <Link to={'/article/'+ article._id} className="link-title">{article.title}</Link>
