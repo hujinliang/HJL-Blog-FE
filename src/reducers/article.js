@@ -13,8 +13,8 @@ export const articleList = createReducer(initialState,{
     [types.ARTICLE_LIST_SUCCESS]:(state,action) => {
         return state.merge({
             isFetching:false,
-            isMore:!(action.json.data.length < action.itemsPerPage),
-            item:action.isAdd?state.get('item').concat(action.json.data):action.json.data
+            isMore: !(action.json.data.length < action.itemsPerPage),
+            items: action.isAdd?state.get('items').concat(action.json.data):action.json.data
         })
     }
 });

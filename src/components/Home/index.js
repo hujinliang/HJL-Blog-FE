@@ -7,8 +7,10 @@ import {connect} from 'react-redux'
 import * as Actions from '../../actions'
 import Sidebar from './sidebar'
 import Tags from './tags'
+import Articles from './article'
 
 const mapStateToProps = (state) => {
+
   return {
       globalVal:state.globalVal.toJS(),
       tagList:state.tagList.toJS(),
@@ -34,9 +36,9 @@ export default class Home extends Component{
         if(tagList.length < 1){
             actions.getTagList()
         }
-        // if(articleList.length < 1){
-        //     actions.getArticleList()
-        // }
+        if(articleList.items.length < 1){
+            actions.getArticleList()
+        }
     }
 
     handleChange(e,option,isAdd=false){
@@ -48,6 +50,8 @@ export default class Home extends Component{
 
     render(){
         const {globalVal,tagList,articleList,options} = this.props;
+        console.log(tagList);
+        console.log(articleList)
         return (
             <div>
                 <div className="container-fluid main-box">
@@ -55,6 +59,7 @@ export default class Home extends Component{
                         <Sidebar img={globalVal.indexImg}/>
                         <div className="col-sm-7 col-sm-offset-3 main-content">
                             <Tags tagList={tagList}/>
+                            <Articles articleList={articleList.items}/>
                         </div>
                     </div>
                 </div>

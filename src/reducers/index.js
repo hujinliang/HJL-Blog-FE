@@ -11,6 +11,7 @@ import auth from './auth'
 import sns from './sns'
 import tagList from './tagList'
 import {articleList} from './article'
+import options from './options'
 
 const rootReducer = combineReducers({
     apps,
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
     auth,
     sns,
     tagList,
-    articleList
+    articleList,
+    options
 })
 
 export default rootReducer
