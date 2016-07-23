@@ -42,7 +42,7 @@ export default class Header extends React.Component{
                             <a href="javascript:" className="navbar-item expanded-logout" onClick={logout}>
                                 <i className="fa fa-sign-out"></i>
                             </a>
-                            <Link to="/setting" className="navbar-item expended-avatar" title={auth.user.nickname}>
+                            <Link to="/setting" className="navbar-item expanded-avatar" title={auth.user.nickname}>
                                 <img src={auth.user.avatar || defaultAvatar}/>
                             </Link>
                         </div>

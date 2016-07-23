@@ -54,12 +54,6 @@ module.exports = {
                 loader:'style!css!less'
             },
             {
-                test: /\.(jpe?g|png|gif)$/i,
-                loaders: [
-                    'url?limit=10000'
-                ]
-            },
-            {
                 test: /\.(woff|woff2|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: 'url?limit=10000&name=fonts/[hash:8].[name].[ext]'
             }
