@@ -9,6 +9,7 @@ import Sidebar from './sidebar'
 import Tags from './tags'
 import Articles from './article'
 import Footer from './footer'
+import LoadMore from './loadMore'
 
 const mapStateToProps = (state) => {
 
@@ -52,7 +53,7 @@ export default class Home extends Component{
 
     render(){
         const {globalVal,tagList,articleList,options} = this.props;
-       
+        console.log(articleList.isMore);
         return (
             <div>
                 <div className="container-fluid main-box">
@@ -61,6 +62,9 @@ export default class Home extends Component{
                         <div className="col-sm-7 col-sm-offset-3 main-content">
                             <Tags tagList={tagList} options={options} isFetching={articleList.isFetching} changeSort={this.handleChange}/>
                             <Articles articleList={articleList.items}/>
+                            {(articleList.items.length > 0&&
+                                <LoadMore options={options} isMore={articleList.isMore} isFetching={articleList.isFetching} addData={this.handleChange}/>
+                            )}
                         </div>
                     </div>
                     <Footer />

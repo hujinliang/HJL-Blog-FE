@@ -11,6 +11,9 @@ const initialState = fromJS({
 export const articleList = createReducer(initialState,{
     [types.ARTICLE_LIST_REQUEST]:(state,action) => state.set('isFetching',true),
     [types.ARTICLE_LIST_SUCCESS]:(state,action) => {
+        
+        console.log()
+        
         return state.merge({
             isFetching:false,
             isMore: !(action.json.data.length < action.itemsPerPage),
