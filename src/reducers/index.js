@@ -10,7 +10,7 @@ import showmsg from './showmsg'
 import auth from './auth'
 import sns from './sns'
 import tagList from './tagList'
-import {articleList} from './article'
+import {articleList,articleDetail} from './article'
 import options from './options'
 
 const rootReducer = combineReducers({
@@ -23,7 +23,8 @@ const rootReducer = combineReducers({
     sns,
     tagList,
     articleList,
-    options
+    options,
+    articleDetail
 })
 
 export default rootReducer

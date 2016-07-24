@@ -12,6 +12,7 @@ export default class Articles extends React.Component{
 
     render(){
         const {articleList} = this.props
+        console.log(articleList)
         return (
             <ul className="article-list list-unstyled clearfix">
                 {articleList.length > 0&&
@@ -25,7 +26,7 @@ export default class Articles extends React.Component{
                                     <Link to={'/article/'+ article._id} className="link-title">{article.title}</Link>
                                 </h4>
                                 <div className="list-footer">
-                                    <span>阅读 {article.visite_count}</span>
+                                    <span>阅读 {article.visit_count}</span>
                                     <span>  评论 {article.comment_count}</span>
                                     <span>  喜欢 {article.like_count}</span>
                                 </div>

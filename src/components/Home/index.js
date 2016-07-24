@@ -53,7 +53,7 @@ export default class Home extends Component{
 
     render(){
         const {globalVal,tagList,articleList,options} = this.props;
-        console.log(articleList.isMore);
+
         return (
             <div>
                 <div className="container-fluid main-box">

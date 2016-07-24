@@ -11,8 +11,8 @@ const initialState = fromJS({
 export const articleList = createReducer(initialState,{
     [types.ARTICLE_LIST_REQUEST]:(state,action) => state.set('isFetching',true),
     [types.ARTICLE_LIST_SUCCESS]:(state,action) => {
-        
-        console.log()
+        // debugger;
+        // console.log(!(action.json.data.length < action.itemsPerPage))
         
         return state.merge({
             isFetching:false,
@@ -21,3 +21,18 @@ export const articleList = createReducer(initialState,{
         })
     }
 });
+
+export const articleDetail = createReducer(fromJS({}),{
+    [types.ARTICLE_DETAIL_SUCCESS]:(state,action) => {return state.merge(action.articleDetail)},
+    [types.ARTICLE_DETAIL_FAILURE]:(state,action) => state,
+    [types.TOGGLE_LIKE_SUCCESS]:(state,action) => {
+
+
+        return state.merge({
+            isLike:action.isLike,
+            like_count:action.like_count
+        })
+    },
+    [types.TOGGLE_LIKE_FAILURE]:(state,action) => state,
+    [types.TOGGLE_LIKE_EXBUG]:(state,{liked}) => state.set('isLike',liked)
+})

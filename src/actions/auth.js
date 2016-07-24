@@ -45,12 +45,31 @@ function loginSuccess(token){
 }
 
 export const getUserInfo = (token = getCookie('token'))=> {
-    return {
-        type:types.GET_USERINFO,
-        promise:api.getMe({
+    return (dispatch,getState) => {
+        return api.getMe()
+            .then(response => ({json:response.data,status:response.statusText}))
+            .then(({json,status}) => {
 
-        })
+                let likeList = json.likes;
+                let currentArticle = getState().articleDetail.toJS();
+                let liked = false;
+                likeList.forEach(item => {
+                    if(String(item) === currentArticle._id){
+                        liked = true;
+                    }
+                });
+
+                dispatch({type:types.TOGGLE_LIKE_EXBUG,liked})
+
+                return dispatch({type:types.GET_USERINFO_SUCCESS,json})
+            })
     }
+    // return {
+    //     type:types.GET_USERINFO,
+    //     promise:api.getMe({
+    //
+    //     })
+    // }
 };
 
 export function logout(){
@@ -67,11 +86,12 @@ export function updateUser(userInfo){
         return api.mdUser(userInfo)
             .then(response => ({json:response.data,status:response.statusText}))
             .then(({json,status}) => {
-                debugger;
+
                 if(status !== 'OK'){
                     return dispatch(showMsg(json.data&&json.data.error_msg||'更新失败'))
                 }
                 dispatch(showMsg('更新成功','success'));
+                dispatch(push('/'))
                 return dispatch(successUpdateUser(json.data))
             }).catch(err => {
                 return dispatch(showMsg('发生错误，更新失败'))

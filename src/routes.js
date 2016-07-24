@@ -9,6 +9,7 @@ import Login from './components/Login'
 import {redirectToBack,redirectToLogin} from './utiles/authService'
 import Setting from './components/Setting'
 import Home from './components/Home'
+import Article from './components/Article'
 
 export default ()=>(
     <Route path="/" component={App}>
@@ -16,5 +17,6 @@ export default ()=>(
         <Route path="/personal" component={PersonalPage}/>
         <Route path="/login" component={Login} onEnter={redirectToBack}/>
         <Setting path="/setting" component={Setting} onEnter={redirectToLogin} />
+        <Article path="/article/:id" component={Article} />
     </Route>
 )
