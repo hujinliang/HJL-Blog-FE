@@ -5,7 +5,7 @@ import {UserResource,AuthResource,ArticleResource,TagResource,MobileResource,Com
 
 export default {
     localLogin: function (data) {
-        console.log('local')
+
         return AuthResource('post', 'local', data)
     },
     getSnsLogins: function () {
@@ -15,6 +15,7 @@ export default {
         return UserResource('get', 'me', data)
     },
     mdUser: function (data) {
+
         return UserResource('put', 'mdUser', data)
     },
     getTagList:function () {

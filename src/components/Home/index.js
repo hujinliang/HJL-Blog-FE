@@ -48,11 +48,11 @@ export default class Home extends Component{
         }
         //bug!
         
-        let token = getCookie('token');
-        if(token){
-            actions.loginSuccess(token);
-            actions.getUserInfo(token);
-        }
+        // let token = getCookie('token');
+        // if(token){
+        //     actions.loginSuccess(token);
+        //     actions.getUserInfo(token);
+        // }
         // actions.loginSuccess(token);
         // debugger;
         // let {auth} = this.props;

@@ -5,7 +5,7 @@ import cookie from 'react-cookie'
 import {CookieDomain} from '../config'
 
 let cookieConfig = {
-
+    path:'/'
 };
 
 export function saveCookie(name,value){
@@ -26,7 +26,8 @@ export function removeCookie(name){
 
 export function signOut(){
     
-    cookie.remove('token',{Domain:'localhost',Path:'/'});
+    cookie.remove('token',{path:'/'});
+    cookie.remove('token',{path:'/article'})
     
 }
 

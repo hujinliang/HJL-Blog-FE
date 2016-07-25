@@ -7,11 +7,15 @@ import {connect} from 'react-redux'
 import * as Actions from '../../actions'
 import Content from './content'
 import Like from './like'
+import Comment from './comment'
+import Prenext from './prenext'
 
 const mapStateToProps = state =>{
     return {
         auth:state.auth.toJS(),
-        articleDetail:state.articleDetail.toJS()
+        articleDetail:state.articleDetail.toJS(),
+        prenextArticle:state.prenextArticle.toJS(),
+        commentList:state.commentList.toJS()
     }
 };
 
@@ -27,6 +31,7 @@ export default class Article extends React.Component{
         super(props);
         this.fetchArticleData = this.fetchArticleData.bind(this);
         this.toggleLike = this.toggleLike.bind(this);
+        this.handleSubmitComment = this.handleSubmitComment.bind(this)
     }
 
     componentDidMount(){
@@ -44,7 +49,9 @@ export default class Article extends React.Component{
     fetchArticleData(id){
         const {actions} = this.props;
         if(id){
-            actions.getArticleDetail(id)
+            actions.getArticleDetail(id);
+            actions.getPrenext(id);
+            actions.getCommentList(id);
         }
     }
 
@@ -55,13 +62,25 @@ export default class Article extends React.Component{
         }
     }
 
+    handleSubmitComment(e,content){
+        e.preventDefault();
+        const {actions,params} = this.props;
+       
+        actions.addComment({
+            aid:params.id,
+            content:content
+        })
+    }
+    
     render(){
-        const {articleDetail} = this.props;
-        console.log(articleDetail)
+        const {articleDetail,prenextArticle,commentList,auth} = this.props;
+        // console.log(commentList)
         return (
             <div className="article-box">
                 <Content articleDetail={articleDetail}/>
                 <Like toggleLike={this.toggleLike} likeCount={articleDetail.like_count} isLike={articleDetail.isLike}/>
+                <Prenext prenextArticle={prenextArticle}  />
+                <Comment commentList={commentList} auth={auth} submitComment={this.handleSubmitComment}/>
             </div>
         )
     }

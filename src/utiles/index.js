@@ -27,3 +27,13 @@ export function customTime(item){
     }
     return descTime
 }
+
+export function formatDate(time){
+    let tmp = new Date(time);
+    let year = tmp.getFullYear();
+    let month = tmp.getMonth();
+    let day = tmp.getDate();
+    let hours = tmp.getHours();
+    let minutes = tmp.getMinutes();
+    return year + '.' + month + '.' + day + ' ' + hours + ':' +minutes;
+}

@@ -89,3 +89,19 @@ function receiveToggleLike(json){
         isLike:json.isLike
     }
 }
+
+export const getPrenext = (id) => {
+    return (dispatch,getState) => {
+        const options = getState().options.toJS()
+        return dispatch({
+            type:types.PRENEXT_ARTICLE,
+            promise:api.getPrenext(id,options)
+        })
+    }
+}
+
+export const commentsNumberAdd = () => {
+    return {
+        type:types.ADD_COMMENT_NUMBER
+    }
+}

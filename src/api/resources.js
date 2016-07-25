@@ -30,7 +30,7 @@ axios.interceptors.response.use(function(response){
 });
 
 export const UserResource = (method, id, data, api='users') => {
-    console.log(axios.defaults.baseURI)
+
     return axios[method](api + (id ? ('/' + id) : ''), data)
 }
 export const AuthResource = (method, id, data, api='auth') => {
