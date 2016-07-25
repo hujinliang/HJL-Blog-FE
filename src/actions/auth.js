@@ -37,7 +37,7 @@ export function localLogin(userInfo){
 	}
 }
 
-function loginSuccess(token){
+export function loginSuccess(token){
 	return{
 		type:types.LOGIN_SUCCESS,
 		token:token

@@ -10,6 +10,7 @@ import Tags from './tags'
 import Articles from './article'
 import Footer from './footer'
 import LoadMore from './loadMore'
+import {getCookie} from '../../utiles/authService'
 
 const mapStateToProps = (state) => {
 
@@ -17,7 +18,8 @@ const mapStateToProps = (state) => {
       globalVal:state.globalVal.toJS(),
       tagList:state.tagList.toJS(),
       articleList:state.articleList.toJS(),
-      options:state.options.toJS()
+      options:state.options.toJS(),
+      auth:state.auth.toJS()
   }
 };
 
@@ -35,6 +37,8 @@ export default class Home extends Component{
     }
 
     componentDidMount(){
+
+        console.log('didmount')
         const{actions,tagList,articleList} = this.props;
         if(tagList.length < 1){
             actions.getTagList()
@@ -42,6 +46,19 @@ export default class Home extends Component{
         if(articleList.items.length < 1){
             actions.getArticleList()
         }
+        //bug!
+        
+        let token = getCookie('token');
+        if(token){
+            actions.loginSuccess(token);
+            actions.getUserInfo(token);
+        }
+        // actions.loginSuccess(token);
+        // debugger;
+        // let {auth} = this.props;
+        // if(auth.token&&!auth.user){
+        //     actions.getUserInfo();
+        // }
     }
 
     handleChange(e,option,isAdd=false){

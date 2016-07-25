@@ -12,7 +12,7 @@ const initialState = fromJS({
 });
 
 export default createReducer(initialState,{
-    [types.LOGIN_SUCCESS]:(state,action) => state.merge({token:action.token}),
+    [types.LOGIN_SUCCESS]:(state,action) => {return state.merge({token:action.token})},
     [types.GET_USERINFO_SUCCESS]:(state,action) => state.merge({user:action.json}),
     [types.GET_USERINFO_FAILURE]:(state,action) => state.set('user',null),
     [types.LOGOUT_USER]:(state,action) => state.merge({token:null,user:null}),

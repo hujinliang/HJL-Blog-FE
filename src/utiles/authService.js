@@ -4,10 +4,14 @@
 import cookie from 'react-cookie'
 import {CookieDomain} from '../config'
 
-let cookieConfig = {};
+let cookieConfig = {
+
+};
 
 export function saveCookie(name,value){
-    cookie.save(name,value,cookieConfig);
+   
+    cookie.save(name,value,{});
+    
 }
 
 export function getCookie(name){
@@ -15,11 +19,15 @@ export function getCookie(name){
 }
 
 export function removeCookie(name){
-    cookie.remove(name,cookieConfig);
+
+    cookie.remove(name,{});
+
 }
 
 export function signOut(){
-    cookie.remove('token');
+    
+    cookie.remove('token',{Domain:'localhost',Path:'/'});
+    
 }
 
 export function isLogin(){
