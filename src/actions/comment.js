@@ -38,3 +38,27 @@ function receiveAddComment(comment){
         comment:comment
     }
 }
+
+export function addReply(cid,reply){
+    return (dispatch,getState) => {
+        return api.addNewReply(cid,reply)
+            .then(response => ({json:response.data,status:response.statusText}))
+            .then(({json,status}) => {
+                if(status !== 'OK'){
+                    return dispatch(showMsg('回复失败'))
+                }
+                dispatch(showMsg('添加回复成功','success'));
+                return dispatch(receiveAddReply(cid,json.data))
+            }).catch(err => {
+                dispatch('回复失败')
+            })
+    }
+}
+
+function receiveAddReply(cid,replys){
+    return {
+        type:types.ADD_REPLY_SUCCESS,
+        cid:cid,
+        replys:replys
+    }
+}

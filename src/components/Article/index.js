@@ -32,6 +32,7 @@ export default class Article extends React.Component{
         this.fetchArticleData = this.fetchArticleData.bind(this);
         this.toggleLike = this.toggleLike.bind(this);
         this.handleSubmitComment = this.handleSubmitComment.bind(this)
+        this.handleSubmitReply = this.handleSubmitReply.bind(this)
     }
 
     componentDidMount(){
@@ -71,7 +72,13 @@ export default class Article extends React.Component{
             content:content
         })
     }
-    
+
+    handleSubmitReply(e,cid,content){
+        e.preventDefault();
+        const {actions} = this.props;
+        actions.addReply(cid,{content})
+    }
+
     render(){
         const {articleDetail,prenextArticle,commentList,auth} = this.props;
         // console.log(commentList)
@@ -80,7 +87,7 @@ export default class Article extends React.Component{
                 <Content articleDetail={articleDetail}/>
                 <Like toggleLike={this.toggleLike} likeCount={articleDetail.like_count} isLike={articleDetail.isLike}/>
                 <Prenext prenextArticle={prenextArticle}  />
-                <Comment commentList={commentList} auth={auth} submitComment={this.handleSubmitComment}/>
+                <Comment commentList={commentList} auth={auth} submitComment={this.handleSubmitComment} submitReply={this.handleSubmitReply}/>
             </div>
         )
     }

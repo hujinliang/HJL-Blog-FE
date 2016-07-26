@@ -56,7 +56,7 @@ export default class Comment extends React.Component{
                 this.setState({
                     openedForm:null
                 })
-                console.log(this.state.openedForm)
+                
             }
         }
     }
