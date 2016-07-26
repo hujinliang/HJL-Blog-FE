@@ -9,10 +9,12 @@ export default class Comment extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            commentContent:''
+            commentContent:'',
+            openedForm:null
         }
         this.handleCommentContentChange = this.handleCommentContentChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.showReply = this.showReply.bind(this);
     }
     handleCommentContentChange(e){
         this.setState({
@@ -28,6 +30,42 @@ export default class Comment extends React.Component{
         }
 
     }
+
+    showReply(e,k,nickname){
+        e.preventDefault();
+        const {auth} = this.props;
+        if(auth.token){
+            const eleForm = this.refs['reply_form_'+k];
+            const eleTextarea = eleForm.getElementsByTagName('textarea')[0];
+            if(eleForm.className.indexOf('hide') != -1){
+                eleForm.className = 'new-reply';
+                eleTextarea.focus();
+                this.refs['replyContent'+k].value = '@' + nickname + ' ';
+                let oldOpened = this.state.openedForm;
+                if(oldOpened){
+                    this.refs['reply_form_'+oldOpened].className += ' hide';
+                    this.setState({
+                        openedForm:k
+                    })
+                }
+            }else{
+                eleForm.className += ' hide';
+                this.setState({
+                    openedForm:null
+                })
+            }
+        }
+    }
+
+    handleSubmitReply(e,i,cid){
+        e.preventDefault();
+        const content = this.refs['replyContent'+i].value;
+        const {submitReply} = this.props;
+        const eleForm = this.refs['reply_form_'+i];
+        submitReply(e,cid,content);
+        eleForm.className += ' hide';
+    }
+
     render(){
         const {commentList,auth,submitComment} = this.props
         return (
@@ -51,11 +89,11 @@ export default class Comment extends React.Component{
                                     </div>
                                     <p className="comment-content">{comment.content}</p>
                                     <div className="comment-footer text-right">
-                                        <a className="reply" href="javascript:;" >回复</a>
+                                        <a className="reply" href="javascript:;" onClick={e=>this.showReply(e,i,comment.user_id.nickname)}>回复</a>
                                     </div>
 
 
-                                    <form className="new-reply hide" ref={'reply_form_'+i} id={'reply_form_'+i}>
+                                    <form className="new-reply hide" ref={'reply_form_'+i} id={'reply_form_'+i} onSubmit={e=>this.handleSubmitReply(e,i,comment._id)}>
                                         <div className="comment-text">
                                          <textarea id={'replyContent'+i}
                                                    maxLength="2000"
