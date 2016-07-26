@@ -15,6 +15,7 @@ export default class Comment extends React.Component{
         this.handleCommentContentChange = this.handleCommentContentChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this)
         this.showReply = this.showReply.bind(this);
+        this.handleSubmitReply = this.handleSubmitReply.bind(this)
     }
     handleCommentContentChange(e){
         this.setState({
@@ -41,18 +42,21 @@ export default class Comment extends React.Component{
                 eleForm.className = 'new-reply';
                 eleTextarea.focus();
                 this.refs['replyContent'+k].value = '@' + nickname + ' ';
-                let oldOpened = this.state.openedForm;
-                if(oldOpened){
+
+                var oldOpened = this.state.openedForm;
+                if(oldOpened !== null){
                     this.refs['reply_form_'+oldOpened].className += ' hide';
-                    this.setState({
-                        openedForm:k
-                    })
                 }
+                this.setState({
+                    openedForm:k
+                })
+
             }else{
                 eleForm.className += ' hide';
                 this.setState({
                     openedForm:null
                 })
+                console.log(this.state.openedForm)
             }
         }
     }
