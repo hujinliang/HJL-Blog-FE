@@ -93,8 +93,9 @@
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0"
   },
-  "api": "https://hjl-blog.herokuapp.com",
   "dependencies": {
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
     "react-hot-loader": "^1.3.0",
     "webpack-dev-server": "^1.14.1"
   }

@@ -37,7 +37,7 @@ export default class scrollTop extends React.Component{
                 {
                     this.state.isShowTop&&
                         <div className="gotop" onClick={this.top}>
-
+                            <i className="fa fa-arrow-up"></i>
                         </div>
                 }
             </div>

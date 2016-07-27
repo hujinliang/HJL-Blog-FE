@@ -1,0 +1,13 @@
+{
+  "apps":[
+    {
+      "name":"hjl-blog-react",
+      "script":"./app.js",
+      "exec_mode"  : "fork_mode",
+      "env":{
+        "NODE_ENV":"production",
+        "PORT":8300
+      }
+    }
+  ]
+}

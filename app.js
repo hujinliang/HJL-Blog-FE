@@ -16,7 +16,7 @@ app.use(favicon(path.join(__dirname,'public','favicon.jpg')));
 app.set('views',path.join(__dirname,'public'));
 app.set('view engine','ejs')
 
-app.get('/',function(req,res,next){
+app.get('*',function(req,res,next){
     res.sendFile(path.join(__dirname,'index.html'))
 });
 
