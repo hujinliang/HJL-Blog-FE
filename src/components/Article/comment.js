@@ -4,6 +4,7 @@
 import React from 'react'
 import defaultAvatar from '../../assets/imgs/avatar.png'
 import {formatDate} from '../../utiles'
+import Reply from './reply'
 
 export default class Comment extends React.Component{
     constructor(props){
@@ -95,7 +96,7 @@ export default class Comment extends React.Component{
                                     <div className="comment-footer text-right">
                                         <a className="reply" href="javascript:;" onClick={e=>this.showReply(e,i,comment.user_id.nickname)}>回复</a>
                                     </div>
-
+                                    <Reply replys={comment.replys} k={i} showReply={this.showReply}/>
 
                                     <form className="new-reply hide" ref={'reply_form_'+i} id={'reply_form_'+i} onSubmit={e=>this.handleSubmitReply(e,i,comment._id)}>
                                         <div className="comment-text">
