@@ -59,6 +59,9 @@ export default class Comment extends React.Component{
                 })
                 
             }
+        }else{
+            const {openLoginModal} = this.props;
+            openLoginModal()
         }
     }
 
@@ -72,7 +75,7 @@ export default class Comment extends React.Component{
     }
 
     render(){
-        const {commentList,auth,submitComment} = this.props
+        const {commentList,auth,submitComment,openLoginModal} = this.props
         return (
             <div className="comment-container clearfix">
                 <div className="comment-head clearfix">
@@ -133,7 +136,7 @@ export default class Comment extends React.Component{
                     :
                     <div>
                         <p className="comment-signin">
-                            <button className="btn btn-info">登录后发表评论</button>
+                            <button className="btn btn-info" onClick={openLoginModal}>登录后发表评论</button>
                         </p>
                     </div>
                 }

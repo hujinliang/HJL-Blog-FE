@@ -9,13 +9,15 @@ import Content from './content'
 import Like from './like'
 import Comment from './comment'
 import Prenext from './prenext'
+import LoginModal from '../Login/modal'
 
 const mapStateToProps = state =>{
     return {
         auth:state.auth.toJS(),
         articleDetail:state.articleDetail.toJS(),
         prenextArticle:state.prenextArticle.toJS(),
-        commentList:state.commentList.toJS()
+        commentList:state.commentList.toJS(),
+        sns:state.sns.toJS()
     }
 };
 
@@ -33,6 +35,9 @@ export default class Article extends React.Component{
         this.toggleLike = this.toggleLike.bind(this);
         this.handleSubmitComment = this.handleSubmitComment.bind(this)
         this.handleSubmitReply = this.handleSubmitReply.bind(this)
+        this.state = {
+            showModal:false
+        }
     }
 
     componentDidMount(){
@@ -60,6 +65,8 @@ export default class Article extends React.Component{
         const {actions,params,auth} = this.props;
         if(auth.token){
             actions.toggleLike(params.id)
+        }else{
+            this.openLoginModal()
         }
     }
 
@@ -79,15 +86,28 @@ export default class Article extends React.Component{
         actions.addReply(cid,{content})
     }
 
+    closeLoginModal(){
+        this.setState({
+            showModal:false
+        })
+    }
+
+    openLoginModal(){
+        this.setState({
+            showModal:true
+        })
+    }
+
     render(){
-        const {articleDetail,prenextArticle,commentList,auth} = this.props;
+        const {articleDetail,prenextArticle,commentList,auth,sns} = this.props;
         // console.log(commentList)
         return (
             <div className="article-box">
                 <Content articleDetail={articleDetail}/>
                 <Like toggleLike={this.toggleLike} likeCount={articleDetail.like_count} isLike={articleDetail.isLike}/>
                 <Prenext prenextArticle={prenextArticle}  />
-                <Comment commentList={commentList} auth={auth} submitComment={this.handleSubmitComment} submitReply={this.handleSubmitReply}/>
+                <Comment commentList={commentList} auth={auth} submitComment={this.handleSubmitComment} submitReply={this.handleSubmitReply} openLoginModal={this.openLoginModal.bind(this)}/>
+                <LoginModal logins={sns.logins} isShowModal={this.state.showModal} closeModal={this.closeLoginModal.bind(this)}/>
             </div>
         )
     }
