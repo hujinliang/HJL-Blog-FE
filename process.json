@@ -4,9 +4,12 @@
       "name":"hjl-blog-react",
       "script":"./app.js",
       "exec_mode"  : "fork_mode",
+      "log_date_format"  : "YYYY-MM-DD HH:mm Z",
+      "out_file"   : "./logs/pm2-out.log",
+      "error_file" : "./logs/pm2-err.log",
       "env":{
-        "NODE_ENV":"production",
-        "PORT":8300
+        "NODE_ENV":"development",
+        "PORT":8000
       }
     }
   ]

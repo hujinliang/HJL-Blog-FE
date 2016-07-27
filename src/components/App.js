@@ -55,8 +55,8 @@ export default class App extends React.Component{
         const {showmsg,globalVal,actions,children,location,auth} = this.props;
         return (
             <div>
-                {children}
                 <Header styleMode={globalVal.styleMode} changeStyleMode={actions.changeStyleMode} location={location} auth={auth} logout={actions.logout}/>
+                {children}
                 <Toaster msg={showmsg} hideMsg={actions.hideMsg} />
                 <ScrollTop />
             </div>

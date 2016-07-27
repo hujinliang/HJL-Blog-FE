@@ -9,7 +9,7 @@ import {Provider} from 'react-redux'
 import routes from './routes'
 import 'font-awesome/css/font-awesome.css'
 import 'bootstrap/dist/css/bootstrap.css'
-import './stylesheets/index.css'
+import './stylesheets/index.less'
 import 'react-s-alert/dist/s-alert-default.css'
 import configureStore from './store/configureStore'
 
