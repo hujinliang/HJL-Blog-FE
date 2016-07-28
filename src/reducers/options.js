@@ -7,7 +7,7 @@ import {fromJS} from 'immutable'
 
 const initialState = fromJS({
     currentPage:1,
-    itemsPerPage:5,
+    itemsPerPage:10,
     sortName:'created',
     tagId:''
 });

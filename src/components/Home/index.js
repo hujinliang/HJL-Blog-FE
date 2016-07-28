@@ -73,7 +73,7 @@ export default class Home extends Component{
 
         return (
             <div>
-                <div className="main-box">
+                <div className="container-fluid main-box">
                     <div className="row">
                         <Sidebar img={globalVal.indexImg}/>
                         <div className="col-sm-7 col-sm-offset-3 main-content">
