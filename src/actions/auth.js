@@ -58,7 +58,7 @@ export const getUserInfo = (token = getCookie('token'))=> {
                         liked = true;
                     }
                 });
-
+                saveCookie('role',json.role);
                 dispatch({type:types.TOGGLE_LIKE_EXBUG,liked})
 
                 return dispatch({type:types.GET_USERINFO_SUCCESS,json})

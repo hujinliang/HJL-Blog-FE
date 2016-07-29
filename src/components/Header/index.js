@@ -25,12 +25,18 @@ export default class Header extends React.Component{
                 <div className="wrap">
                     <div className="contents clearfix">
                         <div className="navbar-menu">
-                            <Link className={'navbar-item logo '+(location.pathname !== '/personal'&&'active')} title="首页" to="/">
+                            <Link className={'navbar-item logo '+(location.pathname !== '/personal'&&location.pathname !== '/admin'&&'active')} title="首页" to="/">
                                 HU
                             </Link>
-                            <Link className={'navbar-item'} activeClassName="active" title="mobile" to="/personal">
+                            <Link className={'navbar-item'} activeClassName="active" title="personal" to="/personal">
                                 <i className="fa fa-user"></i>
                             </Link>
+                            {auth.token&&auth.user&&auth.user.role === 'admin'&&
+                                <Link className={'navbar-item'} activeClassName="active" title="admin" to="/admin">
+                                    <i className="fa fa-envira"></i>
+                                 </Link>
+                            }
+                            
                         </div>
 
                         <div className="navbar-expanded">

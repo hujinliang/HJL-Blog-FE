@@ -25,7 +25,8 @@ export function removeCookie(name){
 }
 
 export function signOut(){
-    
+    cookie.remove('role',{path:'/'});
+    cookie.remove('role',{path:'/article'})
     cookie.remove('token',{path:'/'});
     cookie.remove('token',{path:'/article'})
     
@@ -41,9 +42,19 @@ export function redirectToBack(nextState,replaceState){
     }
 }
 
+export function isAdmin(){
+    return cookie.load('role') === 'admin'
+}
+
 export function redirectToLogin(nextState,replaceState){
     if(!isLogin()){
         replaceState(null,'/login')
+    }
+}
+
+export function adminAuth(nextState,replaceState){
+    if(!isAdmin()){
+        replaceState(null,'/')
     }
 }
 
