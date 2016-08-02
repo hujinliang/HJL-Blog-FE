@@ -4,6 +4,7 @@
 import {UserResource,AuthResource,ArticleResource,TagResource,MobileResource,CommentResource} from './resources'
 
 export default {
+    //user
     localLogin: function (data) {
 
         return AuthResource('post', 'local', data)
@@ -55,5 +56,39 @@ export default {
     },
     delReply: function (id,data) {
         return CommentResource('delete', id, 'delReply', data)
+    },
+    //admin
+    getUserList: function(){
+        return UserResource('get','getUserList');
+    },
+    addUser: function(data){
+        return UserResource('post','addUser',data);
+    },
+    deleteUser: function(id){
+        return UserResource('delete',id);
+    },
+    addTag: function(data){
+        return TagResource('post','addTag',data);
+    },
+    getAdminTagList: function(){
+        return TagResource('get','getTagList');
+    } ,
+    deleteTag: function(id){
+        return TagResource('delete',id);
+    },
+    getAdminCommentList: function(){
+        return CommentResource('get','getCommentList');
+    },
+    deleteComment: function(){
+        return CommentResource('delete',id);
+    },
+    addArticle: function(data){
+        return ArticleResource('post','addArticle',null,data);
+    },
+    getAdminArticleList:function(){
+        return ArticleResource('get','getArticleList');
+    },
+    deleteArticle: function(id){
+        return ArticleResource('delete',id);
     }
 }
