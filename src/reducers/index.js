@@ -13,6 +13,7 @@ import tagList from './tagList'
 import {articleList,articleDetail,prenextArticle} from './article'
 import options from './options'
 import commentList from './comment'
+import adminCommentList from './adminCommentList'
 
 const rootReducer = combineReducers({
     apps,
@@ -27,7 +28,8 @@ const rootReducer = combineReducers({
     options,
     articleDetail,
     prenextArticle,
-    commentList
+    commentList,
+    adminCommentList
 })
 
 export default rootReducer
