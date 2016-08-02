@@ -79,7 +79,7 @@ export default {
     getAdminCommentList: function(){
         return CommentResource('get','getCommentList');
     },
-    deleteComment: function(){
+    deleteComment: function(id){
         return CommentResource('delete',id);
     },
     addArticle: function(data){

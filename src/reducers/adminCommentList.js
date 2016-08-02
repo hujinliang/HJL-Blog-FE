@@ -10,5 +10,16 @@ const initialState = fromJS({
 });
 
 export default createReducer(initialState,{
-    [types.GET_ADMINCOMMENT_SUCCESS]:(state,action) => state.set('items',action.json.data)
+    [types.GET_ADMINCOMMENT_SUCCESS]:(state,action) => state.set('items',fromJS(action.json.data)),
+    [types.DELETE_COMMENT_SUCCESS]:(state,{id}) => {
+        debugger;
+        const items = state.get('items');
+        const index = items.findIndex((element,index) => {
+            return element._id == id;
+        })
+        items.splice(index,1);
+        return state.mergeDeep({
+            items:items
+        });
+    }
 })

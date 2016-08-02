@@ -10,3 +10,19 @@ export const getAdminComment = () => {
         promise:api.getAdminCommentList()
     }
 }
+
+export const deleteComment = (id) => {
+    return (dispatch,getState) => {
+        return api.deleteComment(id)
+            .then(response => ({json:response.data,status:response.statusText}))
+            .then(({json,status}) => {
+                if(status !== 'OK'){
+                    return ;
+                }
+                return dispatch({
+                    type:types.DELETE_COMMENT_SUCCESS,
+                    id:id
+                })
+            })
+    }
+}
