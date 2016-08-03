@@ -13,7 +13,6 @@ export default createReducer(initialState,{
     [types.GET_ADMINTAG_SUCCESS]:(state,{json}) => state.set('items',List(json.data)),
     [types.ADD_ADMINTAG_SUCCESS]:(state,{json}) => {
         const items = state.get('items');
-        console.log(json.data);
         let newItems = items.push(json.data);
         return state.set(
             'items',

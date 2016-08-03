@@ -9,7 +9,11 @@ import {reduxForm} from 'redux-form'
 
 const mapStateToProps = state => {
     return {
-        adminTagList:state.adminTagList.toJS()
+        adminTagList:state.adminTagList.toJS(),
+        initialValues:{
+            name:'javascript',
+            sort:'1'
+        }
     }
 };
 
@@ -86,7 +90,7 @@ export default class AdminTags extends React.Component{
                             </div>
                             <div className="form-group form-group-lg">
                                 <label className="sr-only" for="sort">优先值</label>
-                                <input type="password" ref="sort" className="form-control" id="sort" name="sort" placeholder="请输入优先值" {...sort}  />
+                                <input type="number" ref="sort" className="form-control" id="sort" name="sort" placeholder="请输入优先值" {...sort}  />
                             </div>
                             <button type="submit" className="btn btn-primary" disabled={dirty && invalid}>
                                 添加
