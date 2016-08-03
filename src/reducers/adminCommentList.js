@@ -3,23 +3,32 @@
  */
 import * as types from '../actions/types'
 import {createReducer} from 'redux-immutablejs'
-import {fromJS} from 'immutable'
+import {fromJS,List} from 'immutable'
 
 const initialState = fromJS({
     items:[]
 });
 
 export default createReducer(initialState,{
-    [types.GET_ADMINCOMMENT_SUCCESS]:(state,action) => state.set('items',fromJS(action.json.data)),
+    [types.GET_ADMINCOMMENT_SUCCESS]:(state,action) => state.set('items',List(action.json.data)),
     [types.DELETE_COMMENT_SUCCESS]:(state,{id}) => {
-        debugger;
+        // debugger;
         const items = state.get('items');
-        const index = items.findIndex((element,index) => {
-            return element._id == id;
+        var nowindex;
+        items.forEach((item,index) => {
+            if(item._id == id){
+                nowindex = index;
+                return false
+            }
+            return true
         })
-        items.splice(index,1);
-        return state.mergeDeep({
-            items:items
-        });
+        var newitems = items.delete(nowindex)
+        // const index = items.findIndex((element,index) => {
+        //     return element._id == id;
+        // })
+        // items.splice(index,1);
+        return state.set(
+            'items',newitems
+        );
     }
 })

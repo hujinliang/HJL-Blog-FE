@@ -28,9 +28,7 @@ export default class AdminComments extends React.Component{
 
     componentDidMount(){
         const {actions,adminCommentList} = this.props;
-        if(adminCommentList.items.length<1){
-            actions.getAdminComment()
-        }
+        actions.getAdminComment()
     }
 
     deleteComment(id){
