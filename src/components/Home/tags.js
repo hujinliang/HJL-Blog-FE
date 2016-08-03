@@ -17,7 +17,7 @@ export default class Tags extends React.Component{
     }
     render(){
         const {tagList,options,changeSort,isFetching} = this.props;
-        // console.log(options)
+        // console.log(tagList)
         return(
             <ul className="sort-tags list-unstyled clearfix">
                 <li>

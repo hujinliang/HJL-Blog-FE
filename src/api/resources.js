@@ -26,7 +26,7 @@ axios.interceptors.response.use(function(response){
    } 
     return response;
 },function(err){
-    return Promise.reject(error)
+    return Promise.reject(err)
 });
 
 export const UserResource = (method, id, data, api='users') => {
