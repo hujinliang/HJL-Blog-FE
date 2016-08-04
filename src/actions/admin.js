@@ -63,12 +63,62 @@ export const addTag = (data) => {
                 if(status !== 'OK'){
                     return ;
                 }
-                dispatch(showMsg('删除标签成功','success'))
+                dispatch(showMsg('添加标签成功','success'))
                 dispatch(getTagList())
                 return dispatch({
                     type:types.ADD_ADMINTAG_SUCCESS,
                     json:json
                 })
+            })
+            .catch(error => {
+                return dispatch(showMsg(error.data.error_msg||'添加标签失败'))
+            })
+    }
+}
+
+export const getAdminUserList = () => {
+    return {
+        type:types.GET_ADMINUSER,
+        promise:api.getUserList()
+    }
+}
+
+export const deleteUser = (id) => {
+    return (dispatch,getState) => {
+        return api.deleteUser(id)
+            .then(response => ({json:response.data,status:response.statusText}))
+            .then(({json,status}) => {
+                if(status !== 'OK'){
+                    return ;
+                }
+                dispatch(showMsg('删除用户成功','success'))
+                return dispatch({
+                    type:types.DELETE_ADMINUSER_SUCCESS,
+                    id:id
+                })
+            })
+            .catch(error => {
+                dispatch(showMsg(error.data.message||'删除用户失败'))
+            })
+    }
+}
+
+export const addUser = (data) => {
+    return (dispatch,getState) => {
+        return api.addUser(data)
+            .then(response => ({json:response.data,status:response.statusText}))
+            .then(({json,status}) => {
+                if(status !== 'OK'){
+                    return ;
+                }
+                dispatch(showMsg('添加用户成功','success'))
+                return dispatch({
+                    type:types.ADD_ADMINUSER_SUCCESS,
+                    json:json
+                })
+            })
+            .catch(error => {
+                dispatch(showMsg(error.data.error_msg||'添加用户失败'))
             })
     }
 }

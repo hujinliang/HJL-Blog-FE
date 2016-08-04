@@ -106,7 +106,7 @@ export default class Login extends Component{
                             </div>
                         </div>
                         <div className="form-group">
-                            <button disabled={ dirty && invalid } className="btn btn-primary btn-lg btn-block" type="submit">登 录</button>
+                            <button disabled={ invalid } className="btn btn-primary btn-lg btn-block" type="submit">登 录</button>
                         </div>
 
                     </form>

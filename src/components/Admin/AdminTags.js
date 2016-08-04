@@ -47,8 +47,7 @@ export default class AdminTags extends React.Component{
     componentDidMount(){
         const {actions} = this.props;
         actions.getAdminTagList();
-        this.refs.name.value='';
-        this.refs.sort.value='';
+        
     }
 
     deleteTag(id){
@@ -71,8 +70,6 @@ export default class AdminTags extends React.Component{
         e.preventDefault();
         const {values,actions} = this.props;
         actions.addTag(values);
-        this.refs.name.value='';
-        this.refs.sort.value='';
     }
     
     render(){

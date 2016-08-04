@@ -15,6 +15,7 @@ import options from './options'
 import commentList from './comment'
 import adminCommentList from './adminCommentList'
 import adminTagList from './adminTagList'
+import adminUserList from './adminUserList'
 
 const rootReducer = combineReducers({
     apps,
@@ -31,7 +32,8 @@ const rootReducer = combineReducers({
     prenextArticle,
     commentList,
     adminCommentList,
-    adminTagList
+    adminTagList,
+    adminUserList
 })
 
 export default rootReducer

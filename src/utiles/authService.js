@@ -27,8 +27,10 @@ export function removeCookie(name){
 export function signOut(){
     cookie.remove('role',{path:'/'});
     cookie.remove('role',{path:'/article'})
+    cookie.remove('role',{path:'/admin'})
     cookie.remove('token',{path:'/'});
-    cookie.remove('token',{path:'/article'})
+    cookie.remove('token',{path:'/article'});
+    cookie.remove('token',{path:'/admin'})
     
 }
 

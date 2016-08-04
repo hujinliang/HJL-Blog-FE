@@ -26,7 +26,7 @@ export function addComment(comment){
                 dispatch(commentsNumberAdd());
                 return dispatch(receiveAddComment(json.data))
             }).catch(e => {
-                return dispatch(showMsg('添加评论失败'))
+                return dispatch(showMsg(e.data.error_msg||'添加评论失败'))
             })
 
     }
@@ -50,7 +50,7 @@ export function addReply(cid,reply){
                 dispatch(showMsg('添加回复成功','success'));
                 return dispatch(receiveAddReply(cid,json.data))
             }).catch(err => {
-                dispatch('回复失败')
+                dispatch(err.data.error_msg||'回复失败')
             })
     }
 }

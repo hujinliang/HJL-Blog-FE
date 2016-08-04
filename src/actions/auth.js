@@ -94,7 +94,7 @@ export function updateUser(userInfo){
                 dispatch(push('/'))
                 return dispatch(successUpdateUser(json.data))
             }).catch(err => {
-                return dispatch(showMsg('发生错误，更新失败'))
+                return dispatch(showMsg(err.data.error_msg||'更新失败'))
             })
     }
 }

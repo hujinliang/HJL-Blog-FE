@@ -31,7 +31,7 @@ export function customTime(item){
 export function formatDate(time){
     let tmp = new Date(time);
     let year = tmp.getFullYear();
-    let month = tmp.getMonth();
+    let month = tmp.getMonth() + 1;
     let day = tmp.getDate();
     let hours = tmp.getHours();
     let minutes = tmp.getMinutes();
