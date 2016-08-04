@@ -118,7 +118,8 @@ export const addUser = (data) => {
                 })
             })
             .catch(error => {
-                dispatch(showMsg(error.data.error_msg||'添加用户失败'))
+                console.log(error)
+                dispatch(showMsg(error.msg||'添加用户失败'))
             })
     }
 }
