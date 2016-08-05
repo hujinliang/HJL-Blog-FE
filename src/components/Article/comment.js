@@ -39,6 +39,7 @@ export default class Comment extends React.Component{
         if(auth.token){
             const eleForm = this.refs['reply_form_'+k];
             const eleTextarea = eleForm.getElementsByTagName('textarea')[0];
+            debugger;
             if(eleForm.className.indexOf('hide') != -1){
                 eleForm.className = 'new-reply';
                 eleTextarea.focus();
@@ -72,6 +73,10 @@ export default class Comment extends React.Component{
         const eleForm = this.refs['reply_form_'+i];
         submitReply(e,cid,content);
         eleForm.className += ' hide';
+        this.setState({
+            openedForm:null,
+            commentContent:''
+        })
     }
 
     render(){
