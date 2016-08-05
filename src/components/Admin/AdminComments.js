@@ -39,7 +39,6 @@ export default class AdminComments extends React.Component{
     render(){
         const style = {marginRight:'20px'};
         const {actions,adminCommentList} = this.props;
-        console.log(adminCommentList.items)
         return (
             <div className="col-sm-offset-2 col-sm-10">
                 <div className="admin-comments" style={style}>

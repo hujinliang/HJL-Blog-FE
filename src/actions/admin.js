@@ -123,3 +123,52 @@ export const addUser = (data) => {
             })
     }
 }
+
+export const getAdminArticleList = () => {
+    return {
+        type:types.GET_ADMINARTICLE,
+        promise:api.getAdminArticleList()
+    }
+};
+
+export const deleteArticle = (id) => {
+    return (dispatch,getState) => {
+        return api.deleteArticle(id)
+            .then(response => ({json:response.data,status:response.statusText}))
+            .then(({json,status}) => {
+                if(status != 'OK'){
+                    return ;
+                }
+                debugger;
+                dispatch(showMsg('删除文章成功','success'));
+                return dispatch({
+                    type:types.DELETE_ADMINARTICLE_SUCCESS,
+                    id:id
+                })
+            })
+            .catch(error => {
+                return dispatch(showMsg('删除文章失败'))
+            })
+    }
+}
+
+export const addArticle = (data) => {
+    return (dispatch,getState) => {
+        return api.addArticle(data)
+            .then(response => ({json:response.data,status:response.statusText}))
+            .then(({json,status}) => {
+                if(status !== 'OK'){
+                    return ;
+                }
+                dispatch(showMsg('添加文章成功','success'))
+                return dispatch({
+                    type:types.ADD_ARTICLE_SUCCESS,
+                    json:json
+                })
+            })
+            .catch(error => {
+                console.log(error)
+                dispatch(showMsg(error.msg||'添加文章失败'))
+            })
+    }
+}
