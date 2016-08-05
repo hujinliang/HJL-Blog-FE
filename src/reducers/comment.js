@@ -3,7 +3,7 @@
  */
 import * as types from '../actions/types'
 import {createReducer} from 'redux-immutablejs'
-import {fromJS} from 'immutable'
+import {fromJS,List} from 'immutable'
 
 const initialState = fromJS({
     isFetching:false,
@@ -12,27 +12,39 @@ const initialState = fromJS({
 
 export default createReducer(initialState,{
     [types.COMMENT_LIST_SUCCESS]:(state,{json}) => {
-        return state.merge({
-            errMsg:null,
-            items:fromJS(json.data)
-        })
+        return state.set(
+            'items',List(json.data)
+        )
     },
     [types.COMMENT_LIST_FAILURE]:(state,action) => state,
-    [types.ADD_COMMENT_SUCCESS]:(state,action) => {
-        return state.mergeDeep({
-            errMsg:null,
-            items:state.get('items').push(action.comment)
-        })
+    [types.ADD_COMMENT_SUCCESS]:(state,{comment}) => {
+
+
+        let items = state.get('items');
+        let newItems = items.push(comment);
+        return state.set('items',newItems)
+
     },
     [types.ADD_REPLY_SUCCESS]:(state,action) =>{
-        return state.mergeDeep({
-            errMsg:null,
-            items:state.get('items').map(item=>{
-                if(item.get('_id') === action.cid){
-                    return item.set('replys',action.replys)
-                }
-                return item
-            })
-        })
+
+
+        let items = state.get('items');
+        let nowIndex;
+        let newItem;
+        items.forEach((item,index) => {
+            if(item._id == action.cid){
+                nowIndex = index;
+                newItem = items.get(index)
+                return false
+            }
+            return true;
+        });
+        newItem.replys = action.replys;
+
+        let newItems = items.delete(nowIndex);
+        let newDItems = newItems.insert(nowIndex,newItem)
+        return state.set('items',newDItems)
+
     }
 })
+
