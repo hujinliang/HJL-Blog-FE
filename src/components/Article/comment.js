@@ -39,7 +39,6 @@ export default class Comment extends React.Component{
         if(auth.token){
             const eleForm = this.refs['reply_form_'+k];
             const eleTextarea = eleForm.getElementsByTagName('textarea')[0];
-            debugger;
             if(eleForm.className.indexOf('hide') != -1){
                 eleForm.className = 'new-reply';
                 eleTextarea.focus();
@@ -111,7 +110,7 @@ export default class Comment extends React.Component{
                                          <textarea id={'replyContent'+i}
                                                    maxLength="2000"
                                                    ref={'replyContent'+i}
-                                                   placeholder="写下你的回复…"></textarea>
+                                                   placeholder="写下你的回复…"> </textarea>
                                             <div>
                                                 <input type="submit" value="发 表" className="btn btn-sm btn-info" />
                                             </div>

@@ -37,3 +37,23 @@ export function formatDate(time){
     let minutes = tmp.getMinutes();
     return year + '.' + month + '.' + day + ' ' + hours + ':' +minutes;
 }
+
+export function parseArticle(text){
+
+    let titleRegex = /#*\s+/;
+    let divide = text.indexOf('\n');
+    if(divide == -1){
+        return {
+            title:text.replace(titleRegex,''),
+            content:''
+        }
+    }
+    let title = text.slice(0,divide).replace(titleRegex,'');
+    let content = text.slice(divide+1);
+
+    return {
+        title,
+        content
+    }
+
+}

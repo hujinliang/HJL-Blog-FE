@@ -64,12 +64,6 @@ export const getUserInfo = (token = getCookie('token'))=> {
                 return dispatch({type:types.GET_USERINFO_SUCCESS,json})
             })
     }
-    // return {
-    //     type:types.GET_USERINFO,
-    //     promise:api.getMe({
-    //
-    //     })
-    // }
 };
 
 export function logout(){

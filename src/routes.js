@@ -16,6 +16,7 @@ import AdminArticles from './components/Admin/AdminArticles'
 import AdminTags from './components/Admin/AdminTags'
 import AdminComments from './components/Admin/AdminComments'
 import AdminUsers from './components/Admin/AdminUsers'
+import WriteArticle from './components/WriteArticle'
 
 export default ()=>(
     <Route path="/" component={App}>
@@ -24,6 +25,7 @@ export default ()=>(
         <Route path="/login" component={Login} onEnter={redirectToBack}/>
         <Setting path="/setting" component={Setting} onEnter={redirectToLogin} />
         <Article path="/article/:id" component={Article} />
+        <Route path="/write" component={WriteArticle} />
         <Admin path="/admin" component={Admin} onEnter={adminAuth}>
             <IndexRoute component={AdminPage} />
             <Route path="articles" component={AdminArticles} />

@@ -43,9 +43,9 @@ export default class Home extends Component{
         if(tagList.length < 1){
             actions.getTagList()
         }
-        if(articleList.items.length < 1){
+        // if(articleList.items.length < 1){
             actions.getArticleList()
-        }
+        // }
         //bug!
         
         // let token = getCookie('token');

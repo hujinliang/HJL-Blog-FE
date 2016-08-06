@@ -5,6 +5,7 @@ import * as types from './types'
 import api from '../api'
 import {getTagList} from './article'
 import {showMsg} from './other'
+import {push} from 'react-router-redux'
 
 export const getAdminComment = () => {
     return {
@@ -160,15 +161,15 @@ export const addArticle = (data) => {
                 if(status !== 'OK'){
                     return ;
                 }
-                dispatch(showMsg('添加文章成功','success'))
+                dispatch(push('/'))
+                dispatch(showMsg('上传文章成功','success'))
                 return dispatch({
                     type:types.ADD_ARTICLE_SUCCESS,
                     json:json
                 })
             })
             .catch(error => {
-                console.log(error)
-                dispatch(showMsg(error.msg||'添加文章失败'))
+                dispatch(showMsg(error.data.error_msg||'上传文章失败'))
             })
     }
 }
