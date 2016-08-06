@@ -20,7 +20,6 @@ export default createReducer(initialState,{
         );
     },
     [types.DELETE_ADMINTAG_SUCCESS]:(state,{id}) => {
-        debugger;
         const items = state.get('items');
         var nowindex;
         items.forEach((item,index) => {

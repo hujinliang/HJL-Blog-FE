@@ -140,7 +140,6 @@ export const deleteArticle = (id) => {
                 if(status != 'OK'){
                     return ;
                 }
-                debugger;
                 dispatch(showMsg('删除文章成功','success'));
                 return dispatch({
                     type:types.DELETE_ADMINARTICLE_SUCCESS,
