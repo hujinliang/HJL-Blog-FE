@@ -38,6 +38,7 @@ export function formatDate(time){
     return year + '.' + month + '.' + day + ' ' + hours + ':' +minutes;
 }
 
+//分离title和content，并处理content中的image地址：![cat](cat.png)
 export function parseArticle(text){
 
     let titleRegex = /#*\s+/;
@@ -48,9 +49,16 @@ export function parseArticle(text){
             content:''
         }
     }
-    let title = text.slice(0,divide).replace(titleRegex,'');
-    let content = text.slice(divide+1);
 
+
+    let title = text.slice(0,divide).replace(titleRegex,'');
+    var content = text.slice(divide+1);
+
+    
+    var content = content.replace(/([^\(]*\.(jpe?g|png|gif))(?=\))/g,function(match,$1,$2){
+        return 'http://localhost:9000/upload/' + match
+    });
+    
     return {
         title,
         content

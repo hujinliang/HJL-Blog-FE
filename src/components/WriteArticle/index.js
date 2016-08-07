@@ -10,6 +10,7 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as actions from '../../actions'
 import {parseArticle} from '../../utiles'
+import $ from 'jquery'
 
 const mapStateToProps = (state) => {
     return {
@@ -39,7 +40,8 @@ export default class WriteArticle extends React.Component{
         this.changeData = this.changeData.bind(this);
         this.clearAll = this.clearAll.bind(this);
         this.save = this.save.bind(this);
-        this.selectTag = this.selectTag.bind(this)
+        this.selectTag = this.selectTag.bind(this);
+        this.uploadFile = this.uploadFile.bind(this)
     }
 
     componentDidMount(){
@@ -150,6 +152,31 @@ export default class WriteArticle extends React.Component{
         }
     }
 
+    uploadFile(){
+        const {actions} = this.props;
+        var formData = new FormData($("#uploadForm")[0]);
+        $.ajax({
+            url: 'http://localhost:9000/article/upload',
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data){
+                if(200 === data.code) {
+                    actions.showMsg('上传成功','success')
+                } else {
+                    actions.showMsg('上传失败')
+                }
+                console.log('imgUploader upload success, data:', data);
+            },
+            error: function(){
+                actions.showMsg("与服务器通信发生错误");
+            }
+        });
+    }
+
     render(){
 
         const {adminTagList} = this.props;
@@ -167,6 +194,12 @@ export default class WriteArticle extends React.Component{
                                 {item.name}
                             </div>
                         )}
+                        <div className="pull-right">
+                            <form className="form-signin" id="uploadForm" role="form" method="post" enctype='multipart/form-data' action='javascript:;'>
+                                <input id="fulAvatar" name="files" type="file" className=""/>
+                                <button id="btnSub" className="btn btn-primary" onClick={this.uploadFile}>上 传</button>
+                            </form>
+                        </div>
                     </div>
                     <div className="row work-container">
                         <div className={class1}>
