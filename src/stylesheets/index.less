@@ -1,14 +1,15 @@
-.day-mode, .night-mode {
-  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-}
+//.day-mode, .night-mode {
+//  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+//}
 
 html,body{
   color: #222;
-  height:100%;
-  font-family:"lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-  font-size:14px;
+  //height:100%;
+  font-family:Lato, "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size:18px;
   line-height:19px;
   background-color: white;
+  overflow-y: scroll;
 }
 
 //设置height为100%,writepage需求
@@ -38,9 +39,9 @@ td{
 a{
   text-decoration: none;
   color: #000;
-  &:hover,&:active,&:focus{
-    text-decoration: none;
-  }
+  //&:hover,&:active,&:focus{
+  //  text-decoration: none;
+  //}
 }
 
 ul,ol {
@@ -80,7 +81,7 @@ input.ng-dirty{
   backface-visibility: hidden;
   left:0;
   z-index: 1000;
-  height:60px;
+  height:50px;
   top:0;
   width:100%;
   background-color: #222;
@@ -109,7 +110,7 @@ input.ng-dirty{
     float: left;
     .navbar-item{
       float:left;
-      line-height:60px;
+      line-height:50px;
       font-size:30px;
       color:#00d8ff;
       padding:0 20px;
@@ -133,9 +134,8 @@ input.ng-dirty{
       -webkit-border-radius: 2px;
       -moz-border-radius: 2px;
       border-radius: 2px;;
-      margin-right:7px;
       height:40px;
-      margin:10px;
+      margin:6px;
       line-height:40px;
       padding: 0 18px;
       i{
@@ -147,7 +147,7 @@ input.ng-dirty{
       color:#ccc;
       font-weight:normal;
       height:40px;
-      margin:10px;
+      margin:6px;
       line-height:40px;
       padding: 0 18px;
     }
@@ -156,7 +156,7 @@ input.ng-dirty{
       color:#ccc;
       font-weight:normal;
       height:40px;
-      margin:10px;
+      margin:6px;
       line-height:40px;
       padding: 0 18px;
       overflow: hidden;
@@ -178,7 +178,7 @@ input.ng-dirty{
   margin-left:auto;
   .sidebar-box{
     position: fixed;
-    top: 60px;
+    top: 50px;
     left:0;
     bottom:0;
     .cover-img{
@@ -591,3 +591,104 @@ a.like-btn:hover {
     margin-right:30px;
   }
 }
+
+
+
+
+
+
+//新样式
+a{
+  text-decoration: none;
+  color: #3a539b;
+}
+
+.background{
+  position: fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background-image:url("https://unsplash.it/1280/984?random&t=3&gravity=north");
+  background-size:cover;
+  background-position:center center;
+}
+
+#outer-container{
+  position: absolute;
+  left:50%;
+  width:940px;
+  margin-left: -480px;
+  -webkit-box-shadow: 0 0 2.5em #5d656c;
+  -moz-box-shadow: 0 0 2.5em #5d656c;
+  box-shadow: 0 0 2.5em #5d656c;
+  background-color:#ffffff;
+  #container{
+    background: #ffffff;
+  }
+  .content-outer{
+    padding:10px;
+  }
+  .sort-tags{
+    margin:22px 0;
+    list-style: none;
+    li{
+      float: left;
+      text-align: center;
+      margin-right:10px;
+      a{
+        display: block;
+        font-size: 18px;
+        border:1px solid #cccccc;
+        text-align: center;
+        padding:7px 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        color: #000;
+        &.active{
+          background: #e78170;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .article-list{
+    line-height:1.5em;
+  }
+  .articleList-item{
+    margin-left:20px;
+    padding-left:5px;
+    border-left:2px #bbb solid;
+    &:hover{
+      border-left:4px #1e8bc3 solid;
+    }
+    .list-footer{
+      margin-top: 2px;
+      color: #888;
+      font-size: 14px;
+      .like-count{
+        color: #ff6666;
+      }
+      .visit-count{
+        color: #4cb88b;
+      }
+      .comment-count{
+        color:#00d8ff;
+      }
+    }
+    .time{
+      font-size:14px;
+      margin-top: 2px;
+      color: #888;
+    }
+  }
+  .footer-container{
+    background:#ffffff;
+  }
+}
+
+#container{
+  margin-top:50px;
+}
+
