@@ -34,7 +34,7 @@ export default class Header extends React.Component{
                         <div className="menu-list">
                             <ul>
                                 <li><Link className={(location.pathname !== '/personal'&&location.pathname !== '/admin'&&location.pathname !== '/admin/articles'&&location.pathname !== '/admin/tags'&&location.pathname !== '/admin/users'&&location.pathname !== '/admin/comments'&&'active')} title="首页" to="/">
-                                    首页
+                                    <i className="fa fa-bitcoin"> </i>博客
                                 </Link></li>
                                 <li><Link  activeClassName="active" title="personal" to="/personal">
                                     <i className="fa fa-user"> </i>关于
@@ -47,18 +47,18 @@ export default class Header extends React.Component{
                                 {(auth.token && auth.user)?
                                     (
                                         <li><a href="javascript:" onClick={logout}>
-                                            <i className="fa fa-sign-out"></i>登出
+                                            <i className="fa fa-sign-out"> </i>登出
                                         </a></li>
                                     )
                                     :
                                     <li><Link to="/login"  activeClassName="active">
-                                        <i className="fa fa-sign-in"></i>登录
+                                        <i className="fa fa-sign-in"> </i>登录
                                     </Link></li>
 
                                 }
                                 {auth.token && auth.user&&
-                                    <li><Link to="/setting" className="navbar-user" title={auth.user.nickname}>
-                                        <img src={auth.user.avatar || defaultAvatar}/>
+                                    <li ><Link to="/setting" title={auth.user.nickname}>
+                                        <img src={auth.user.avatar || defaultAvatar} className="user-avatar"/>
                                     </Link></li>}
                             </ul>
                         </div>
