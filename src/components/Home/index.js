@@ -82,6 +82,9 @@ export default class Home extends Component{
                         <div className="content-outer">
                             <div className="content-inner">
                                 <Tags tagList={tagList} options={options} isFetching={articleList.isFetching} changeSort={this.handleChange}/>
+                                <h1>归档
+                                    <span className="list-count">共{articleList.count}篇文章</span>
+                                </h1>
                                 <Articles articleList={articleList.items} changeSort={this.handleChange}/>
                                 {(articleList.items.length > 0&&
                                     <LoadMore options={options} isMore={articleList.isMore} isFetching={articleList.isFetching} addData={this.handleChange}/>

@@ -55,7 +55,7 @@ export function parseArticle(text){
     var content = text.slice(divide+1);
 
     
-    var content = content.replace(/([^\(]*\.(jpe?g|png|gif))(?=\))/g,function(match,$1,$2){
+    content = content.replace(/([^\(]*\.(jpe?g|png|gif))(?=\))/g,function(match,$1,$2){
         return 'http://localhost:9000/upload/' + match
     });
     

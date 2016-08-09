@@ -5,7 +5,8 @@ import {fromJS} from 'immutable'
 const initialState = fromJS({
 	isFetching:false,
 	isMore:true,
-    items:[]
+    items:[],
+    count:0
 });
 
 export const articleList = createReducer(initialState,{
@@ -13,11 +14,12 @@ export const articleList = createReducer(initialState,{
     [types.ARTICLE_LIST_SUCCESS]:(state,action) => {
         // debugger;
         // console.log(!(action.json.data.length < action.itemsPerPage))
-        
+        console.log(action.json.data)
         return state.merge({
             isFetching:false,
             isMore: !(action.json.data.length < action.itemsPerPage),
-            items: action.isAdd?state.get('items').concat(action.json.data):action.json.data
+            items: action.isAdd?state.get('items').concat(action.json.data):action.json.data,
+            count:action.json.count
         })
     }
 });

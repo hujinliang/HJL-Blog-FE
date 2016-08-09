@@ -48,7 +48,13 @@ export default class Articles extends React.Component{
 
                                         )
                                     })}
-                                </span>
+                                </span><br/>
+                                {article.images.length&&article.images.map((url,index) =>
+                                    <Link key={index} to={'/article/'+ article._id} className="thumb-box">
+                                        <img src={url} alt=""/>
+                                    </Link>
+                                )}
+                                <Link to=""/>
                             </p>
                         </div>
                     </li>

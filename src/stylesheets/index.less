@@ -609,7 +609,7 @@ a{
   bottom:0;
   left:0;
   right:0;
-  background-image:url("https://unsplash.it/1280/984?random&t=3&gravity=north");
+  background-image:url("../assets/imgs/background.jpg");
   background-size:cover;
   background-position:center center;
 }
@@ -617,7 +617,7 @@ a{
 #outer-container{
   position: absolute;
   left:50%;
-  width:940px;
+  width:960px;
   margin-left: -480px;
   -webkit-box-shadow: 0 0 2.5em #5d656c;
   -moz-box-shadow: 0 0 2.5em #5d656c;
@@ -686,9 +686,98 @@ a{
   .footer-container{
     background:#ffffff;
   }
+  .list-count{
+    font-size:12px;
+    font-weight:normal;
+    color: #888;
+    font-style: italic;
+  }
+  .thumb-box img{
+    max-width:120px;
+    max-height:120px;
+    padding:3px;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    border-radius: 5%;
+    border:1px solid #dddddd;
+  }
 }
 
 #container{
   margin-top:50px;
+}
+
+
+.absolute-wrap{
+  position: absolute;
+  left:50%;
+  width:960px;
+  margin-left: -480px;
+  -webkit-box-shadow: 0 0 2.5em #5d656c;
+  -moz-box-shadow: 0 0 2.5em #5d656c;
+  box-shadow: 0 0 2.5em #5d656c;
+  background-color:#ffffff;
+}
+.menu-outer{
+  margin:0px;
+  padding:0px;
+  position: fixed;
+  z-index:1;
+  -webkit-transition: all 0.5s ease-in;
+  -moz-transition: all 0.5s ease-in;
+  -ms-transition: all 0.5s ease-in;
+  -o-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+  opacity:0.85;
+  background: #ffffff;
+  .menu-inner{
+    line-height:50px;
+    height:50px;
+    border-bottom:1px solid #ddd;
+    padding:0 10px;
+    width:960px;
+  }
+  .brand{
+    float: left;
+    vertical-align: middle;
+    cursor: pointer;
+    a{
+      top:0;
+      color: #000;
+    }
+    .hjl-avatar{
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, .3);
+      -moz-box-shadow: 0 0 3px 1px rgba(0, 0, 0, .3);
+      box-shadow: 0 0 3px 1px rgba(0, 0, 0, .3);
+      width:32px;
+      height:32px;
+    }
+    .homelink{
+      line-height: 32px;
+      display: inline-block;
+
+    }
+  }
+
+  .menu-list{
+    display: inline-block;
+    float: right;
+    padding-left:0px;
+    li{
+      padding:5px;
+      margin:5px;
+      text-align: center;
+      display: inline;
+      a{
+        text-decoration: none;
+        &.active{
+          color: #000;
+        }
+      }
+    }
+  }
 }
 
