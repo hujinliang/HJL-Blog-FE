@@ -35,11 +35,11 @@ export default class Admin extends React.Component{
                         <div className="controller-menu">
                             <div className="fix"></div>
                             <Link className="controller-item" activeClassName="active" title="" to="/admin/articles">
-                                <i className="fa fa-user"></i>文章
+                                <i className="fa fa-file"></i>文章
                             </Link>
                             <div className="fix"></div>
                             <Link className="controller-item" activeClassName="active" title="" to="/admin/tags">
-                                <i className="fa fa-user"></i>标签
+                                <i className="fa fa-tags"></i>标签
                             </Link>
                             <div className="fix"></div>
                             <Link className="controller-item" activeClassName="active" title="" to="/admin/users">
@@ -47,7 +47,7 @@ export default class Admin extends React.Component{
                             </Link>
                             <div className="fix"></div>
                             <Link className="controller-item" activeClassName="active" title="" to="/admin/comments">
-                                <i className="fa fa-user"></i>评论
+                                <i className="fa fa-comments"></i>评论
                             </Link>
                             <div className="fix"></div>
                         </div>

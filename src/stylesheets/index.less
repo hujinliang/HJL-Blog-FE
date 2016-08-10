@@ -565,18 +565,24 @@ a.like-btn:hover {
   .controller-item{
     display: block;
     text-align: center;
-
+    text-decoration: none;
     border-right: 5px solid #cccccc;
     font-size:15px;
     padding: 10px 20px;
-    -webkit-transition: all 1s;
-    -moz-transition: all 1s;
-    -ms-transition: all 1s;
-    -o-transition: all 1s;
-    transition: all 1s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
     &.active{
       color: #de533c;
       border-right:5px solid #de533c;
+    }
+    &:hover{
+
+    }
+    i{
+      margin-right: 10px;
     }
   }
 }
@@ -608,11 +614,12 @@ a{
 
 .background{
   position: fixed;
+  z-index: 0;
   top:0;
   bottom:0;
   left:0;
   right:0;
-  //background-image:url("../assets/imgs/background.jpg");
+  background-image:url("../assets/imgs/background.jpg");
   background-size:cover;
   background-position:center center;
 }
@@ -640,6 +647,7 @@ a{
       text-align: center;
       margin-right:10px;
       a{
+        text-decoration: none;
         display: block;
         font-size: 18px;
         border:1px solid #cccccc;
@@ -649,6 +657,10 @@ a{
         -moz-border-radius: 10px;
         border-radius: 10px;
         color: #000;
+        &:hover{
+          color:#e45735;
+          background: #f7cdc2;
+        }
         &.active{
           background: #e78170;
           color: #fff;
@@ -846,6 +858,22 @@ a{
   }
 }
 
+.settings-box{
+  width:700px;
+  padding:20px 0;
+  margin:0 auto;
+  .title{
+    margin:25px auto;
+    text-align: center;
+  }
+  .settings-form{
+    max-width:300px;
+    padding-bottom:40px;
+    margin:0 auto 25px;
+    border-bottom:1px solid #c0c0c0;
+  }
+}
+
 .login-sns{
   text-align: center;
   ul{
@@ -878,6 +906,7 @@ a{
   i{
     margin-top:-3px;
     margin-left:-1px;
+    margin-right: 0;
   }
 }
 
@@ -900,3 +929,37 @@ a{
   }
 }
 
+.footer-container{
+  padding: 20px 10px;
+  text-align: center;
+  color: #999;
+  font-size: 15px;
+  vertical-align: middle;;
+  li{
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    a{
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #eee;
+      color: #999;
+      font-size: 20px;
+      line-height: 30px;
+      text-align: center;
+      &.github:hover{
+      background: #49be38;
+      color: #ffffff;
+      }
+      &.email:hover{
+        background:#15a7f0;
+        color: #ffffff;
+      }
+    }
+  }
+  i{
+    margin-right: 0;
+  }
+}

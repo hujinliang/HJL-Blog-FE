@@ -47,7 +47,7 @@ export default class Header extends React.Component{
                             <div className="brand">
                                 <a href="https://github.com/HUJINLIANG">
                                     <img src={hjlAvatar} alt="" className="hjl-avatar"/>
-                                    <div className="homelink">不可能</div>
+                                    <div className="homelink">月亮</div>
                                 </a>
                             </div>
                             <div className="menu-list">
