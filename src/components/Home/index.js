@@ -75,10 +75,9 @@ export default class Home extends Component{
 
             <div>
                 <div className="background">
-
                 </div>
-                <div id="outer-container">
-                    <div id="container">
+                <div className="outer-container">
+                    <div className="wrap-container">
                         <div className="content-outer">
                             <div className="content-inner">
                                 <Tags tagList={tagList} options={options} isFetching={articleList.isFetching} changeSort={this.handleChange}/>

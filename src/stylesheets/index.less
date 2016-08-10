@@ -598,6 +598,9 @@ a.like-btn:hover {
 
 
 //新样式
+i{
+  margin-right:5px;
+}
 a{
   text-decoration: none;
   color: #3a539b;
@@ -609,20 +612,20 @@ a{
   bottom:0;
   left:0;
   right:0;
-  background-image:url("../assets/imgs/background.jpg");
+  //background-image:url("../assets/imgs/background.jpg");
   background-size:cover;
   background-position:center center;
 }
 
-#outer-container{
+.outer-container{
   position: absolute;
   left:50%;
   width:960px;
+  min-height:1200px;
   margin-left: -480px;
   -webkit-box-shadow: 0 0 2.5em #5d656c;
   -moz-box-shadow: 0 0 2.5em #5d656c;
   box-shadow: 0 0 2.5em #5d656c;
-  background-color:#ffffff;
   #container{
     background: #ffffff;
   }
@@ -706,7 +709,10 @@ a{
 #container{
   margin-top:50px;
 }
-
+.wrap-container{
+  margin-top:50px;
+  background: #ffffff;
+}
 
 .absolute-wrap{
   position: absolute;
@@ -716,11 +722,10 @@ a{
   -webkit-box-shadow: 0 0 2.5em #5d656c;
   -moz-box-shadow: 0 0 2.5em #5d656c;
   box-shadow: 0 0 2.5em #5d656c;
-  background-color:#ffffff;
 }
 .menu-outer{
-  margin:0px;
   padding:0px;
+  height:50px;
   position: fixed;
   z-index:1;
   -webkit-transition: all 0.5s ease-in;
@@ -730,6 +735,12 @@ a{
   transition: all 0.5s ease-in;
   opacity:0.85;
   background: #ffffff;
+  &.slide-down{
+    top:0;
+  }
+  &.slide-up{
+    top:-50px;
+  }
   .menu-inner{
     line-height:50px;
     height:50px;
@@ -777,6 +788,9 @@ a{
           color: #000;
         }
       }
+      &:hover{
+        font-weight:900;
+      }
     }
     .user-avatar{
       width:30px;
@@ -790,6 +804,98 @@ a{
       &:hover{
         border:3px solid #ff6666
       }
+    }
+  }
+}
+
+.slide-top {
+  position: fixed;
+  right: 2%;
+  bottom: 5px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  cursor: pointer;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  i{
+    font-size: 2em;
+    color: #fff;
+    margin-top: 3px;
+  }
+  &:hover{
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.signin-box{
+  width:700px;
+  padding:20px 0;
+  margin:0 auto;
+  .title{
+    margin:25px auto;
+    text-align: center;
+  }
+  .signin-form{
+    max-width:300px;
+    padding-bottom:40px;
+    margin:0 auto 25px;
+    border-bottom:1px solid #c0c0c0;
+  }
+}
+
+.login-sns{
+  text-align: center;
+  ul{
+    padding:0;
+    margin:10px auto;
+  }
+  li{
+    display: inline-block;
+    margin-right:10px;
+  }
+  a{
+    background: #eeeeee;
+    width:44px;
+    height:44px;
+    display: inline-block;
+    border-radius:50%;
+    line-height:44px;
+    font-size:25px;
+    text-align: center;
+    color: #999;
+    &.github:hover{
+      background: #49be38;
+      color: #ffffff;
+    }
+    &.qq:hover{
+      background:#15a7f0;
+      color: #ffffff;
+    }
+  }
+  i{
+    margin-top:-3px;
+    margin-left:-1px;
+  }
+}
+
+.load-more{
+  margin-bottom:30px;
+  text-align: center;
+  button{
+    background-color: #c0c0c0;
+    padding:14px 18px;
+    font-size:17px;
+    cursor: pointer;
+    color: #000;
+    border:1px solid #c0c0c0;
+    border-radius:3px;
+    &:hover{
+      background: #e78170;
+      border-color: #e78170;
+      color: #ffffff;
     }
   }
 }

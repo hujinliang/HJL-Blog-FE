@@ -81,40 +81,50 @@ export default class Login extends Component{
         const {sns,fields:{email,password},dirty,invalid} = this.props;
 
         return (
-            <div className="signin-box">
-                <div className="signin-container">
-                    <h4 className="title">登 录</h4>
-                    <form className="signin-form form-horizontal" id="signin" name="signin" onSubmit={this.handleSubmit} noValidate>
-                        <div className="form-group">
-                            <div className="input-group">
-                                <div className="input-group-addon">
-                                    <i className="fa fa-envelope-o"></i>
-                                </div>
-                                <input type="email"
-                                       className={ this.validatorCalss(email) }
-                                       placeholder="邮箱"
-                                    {...email} />
+
+        <div className="outer-container">
+            <div className="wrap-container">
+                <div className="content-outer">
+                    <div className="content-inner">
+                        <div className="signin-box">
+                            <div className="signin-container">
+                                <h4 className="title">登 录</h4>
+                                <form className="signin-form form-horizontal" id="signin" name="signin" onSubmit={this.handleSubmit} noValidate>
+                                    <div className="form-group">
+                                        <div className="input-group">
+                                            <div className="input-group-addon">
+                                                <i className="fa fa-envelope-o"></i>
+                                            </div>
+                                            <input type="email"
+                                                   className={ this.validatorCalss(email) }
+                                                   placeholder="邮箱"
+                                                {...email} />
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
+                                        <div className="input-group">
+                                            <div className="input-group-addon"><i className="fa fa-unlock-alt"></i></div>
+                                            <input type="password"
+                                                   className={ this.validatorCalss(password) }
+                                                   placeholder="密码"
+                                                {...password} />
+                                        </div>
+                                    </div>
+                                    <div className="form-group">
+                                        <button disabled={ invalid } className="btn btn-primary btn-lg btn-block" type="submit">登 录</button>
+                                    </div>
+
+                                </form>
+
+                                <p className="text-center">您还可以通过以下方式直接登录</p>
+                                <SNSLogin logins={sns.logins}/>
                             </div>
                         </div>
-                        <div className="form-group">
-                            <div className="input-group">
-                                <div className="input-group-addon"><i className="fa fa-unlock-alt"></i></div>
-                                <input type="password"
-                                       className={ this.validatorCalss(password) }
-                                       placeholder="密码"
-                                    {...password} />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <button disabled={ invalid } className="btn btn-primary btn-lg btn-block" type="submit">登 录</button>
-                        </div>
-
-                    </form>
-
-                    <p className="text-center">您还可以通过以下方式直接登录</p>
-                    <SNSLogin logins={sns.logins}/>
+                    </div>
                 </div>
             </div>
+        </div>
+
         )
     }
 }

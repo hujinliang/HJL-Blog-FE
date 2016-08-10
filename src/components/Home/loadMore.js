@@ -10,7 +10,7 @@ export default class LoadMore extends React.Component{
             <div className="load-more">
                 {isMore&&
                     <button className="ladda-button" onClick={e => addData(e,{'currentPage':++options.currentPage},true)}>
-                        {isFetching?<span className="ladda-spinner"><i className="fa fa-spinner fa-spin"></i></span>:<span className="ladda-label">加载更多</span>}
+                        {isFetching?<span className="ladda-spinner"><i className="fa fa-spinner fa-spin"></i></span>:<span className="ladda-label"><i className="fa fa-plus-circle"> </i>加载更多</span>}
                     </button>
                 }
             </div>
