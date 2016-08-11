@@ -62,35 +62,40 @@ export default class Setting extends Component{
         const {fields:{nickname},dirty,invalid} = this.props;
         // console.log(nickname)
         return (
-     <div className="outer-container">
-        <div className="wrap-container">
-            <div className="content-outer">
-                <div className="content-inner">
-                    <div className="settings-box">
-                        <div className="settings-container">
-                            <h2 className="title">设置</h2>
-                            <hr />
-                            <div className="profile">
-                                <div className="control-group">
-                                    <form className="settings-form" name="settingForm" onSubmit={this.handleSubmit} noValidate>
-                                        <div className="form-group">
-                                            <label className="control-label">昵称</label>
-                                            <input placeholder="2-15字符，中英文、数字和下划线"
-                                                {...nickname}
-                                                   type="text"
-                                                   className={ this.validatorClass(nickname) }
-                                                   minLength="2" maxLength="15" />
+            <div>
+                 <div className="background">
+                </div>
+                 <div className="outer-container">
+                <div className="wrap-container">
+                    <div className="content-outer">
+                        <div className="content-inner">
+                            <div className="settings-box">
+                                <div className="settings-container">
+                                    <h2 className="title">设置</h2>
+                                    <hr />
+                                    <div className="profile">
+                                        <div className="control-group">
+                                            <form className="settings-form" name="settingForm" onSubmit={this.handleSubmit} noValidate>
+                                                <div className="form-group">
+                                                    <label className="control-label">昵称</label>
+                                                    <input placeholder="2-15字符，中英文、数字和下划线"
+                                                        {...nickname}
+                                                           type="text"
+                                                           className={ this.validatorClass(nickname) }
+                                                           minLength="2" maxLength="15" />
+                                                </div>
+                                                <button type="submit" disabled={ dirty && invalid } className="btn btn-block btn-lg btn-primary">保 存</button>
+                                            </form>
                                         </div>
-                                        <button type="submit" disabled={ dirty && invalid } className="btn btn-block btn-lg btn-primary">保 存</button>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                         </div>
                     </div>
-                 </div>
+                </div>
             </div>
-        </div>
-    </div>
+            </div>
+    
         )
     }
 }

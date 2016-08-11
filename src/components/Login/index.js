@@ -81,8 +81,10 @@ export default class Login extends Component{
         const {sns,fields:{email,password},dirty,invalid} = this.props;
 
         return (
-
-        <div className="outer-container">
+        <div>
+             <div className="background">
+            </div>
+            <div className="outer-container">
             <div className="wrap-container">
                 <div className="content-outer">
                     <div className="content-inner">
@@ -124,6 +126,8 @@ export default class Login extends Component{
                 </div>
             </div>
         </div>
+        </div>
+        
 
         )
     }

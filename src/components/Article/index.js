@@ -102,7 +102,12 @@ export default class Article extends React.Component{
         const {articleDetail,prenextArticle,commentList,auth,sns} = this.props;
         // console.log(commentList)
         return (
-        <div className="outer-container">
+
+        <div>
+            <div className="background">
+            </div>
+            <div className="outer-container">
+
             <div className="wrap-container">
                 <div className="content-outer">
                     <div className="content-inner">
@@ -117,6 +122,8 @@ export default class Article extends React.Component{
                 </div>
             </div>
         </div>
+        </div>
+        
 
             // <div className="article-box">
             //     <Content articleDetail={articleDetail}/>

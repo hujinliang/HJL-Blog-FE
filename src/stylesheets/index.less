@@ -524,28 +524,7 @@ a.like-btn:hover {
   text-align: center;
 }
 
-.prenext {
-  margin-bottom: 40px;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-.prenext .next, .prenext .prev {
-  display: inline-block;
-  /* non-flexbox browsers */
-  -webkit-flex: 1 0;
-  flex: 1 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.prenext .next a, .prenext .prev a {
-  font-size: 16px;
-}
-.prenext .next a span, .prenext .prev a span {
-  font-size: 14px;
-}
+
 
 
 //mine
@@ -624,7 +603,7 @@ a{
   bottom:0;
   left:0;
   right:0;
-  //background-image:url("../assets/imgs/background.jpg");
+  background-image:url("../assets/imgs/background.jpg");
   background-size:cover;
   background-position:center center;
 }
@@ -989,9 +968,81 @@ a{
     width:30px;
     height:30px;
     text-align: center;
-    line-height:30px;
-    font-size:20px;
+    border-radius: 50%;
+    overflow: hidden;
     color: #f7cdc2;
     background:#c0c0c0;
+    border: 1px solid #cccccc;
+    img{
+      width: 100%;
+    }
+  }
+  .comment-content{
+    border: 1px solid #ccc;
+    border-bottom: none;
+    padding: 10px;
+    /*padding-right: 20px;*/
+    textarea{
+      font-size: 20px;
+        width: 100%;
+        height: 78px;
+        padding: 0;
+        margin: 0;
+        border: none;
+        resize: none;
+        overflow: auto;
+        outline: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+  }
+  .button-container{
+    border: 1px solid #ccc;
+    background: #fbfbfb;
+    .btn{
+      border-radius: 0;
+    }
   }
 }
+
+.prenext {
+  margin-bottom: 40px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  .next{
+    display: inline-block;
+
+    -webkit-flex: 1 0;
+    flex: 1 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    i{
+      margin-left: 5px;
+    }
+  }
+  .pre{
+    display: inline-block;
+
+    -webkit-flex: 1 0;
+    flex: 1 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  a{
+    font-size: 16px;
+    text-decoration: none;
+    color: #000302;
+    &:hover{
+      color:#de533c;
+    }
+  }
+  i{
+    font-size: 20px;
+  }
+}
+

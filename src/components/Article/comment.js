@@ -2,7 +2,7 @@
  * Created by jialao on 2016/7/25.
  */
 import React from 'react'
-import defaultAvatar from '../../assets/imgs/avatar.png'
+import defaultAvatar from '../../assets/imgs/userimg.png'
 import {formatDate} from '../../utiles'
 import Reply from './reply'
 
@@ -79,7 +79,8 @@ export default class Comment extends React.Component{
         })
     }
 
-    clearText(){
+    clearText(e){
+        e.preventDefault()
         this.setState({
             commentContent:''
         })
@@ -132,10 +133,13 @@ export default class Comment extends React.Component{
 
                     <div className="comment-reply">
                         <a className="reply-avatar" href="javascript:;">
-                            <i className="fa fa-comments"></i>
+                        {auth&&auth.user? <img src={auth.user.avatar || defaultAvatar}/>
+                        :
+                            <img src={ defaultAvatar}/>
+                        }
                         </a>
                         <form className="comment-form" onSubmit={this.handleSubmit(submitComment)}>
-                            <div className="comment-text">
+                            <div className="comment-content">
                                 <textarea
                                 maxLength="2000"
                                 required
@@ -145,9 +149,10 @@ export default class Comment extends React.Component{
 
                                 </textarea>
                             </div>
-                            <div className="button-container">
-                                <button className="btn btn-danger" onCLick={this.clearText}>清空</button>
-                                <input type="submit" id="comment_submit_btn" value="发 表" className="btn btn-info" />
+                            <div className="button-container clearfix">
+                                <input type="submit" id="comment_submit_btn" value="发 表" className="btn btn-info pull-right" />
+                                <button className="btn btn-danger pull-right" onClick={this.clearText}>清空</button>
+                                
                             </div>
                         </form>
                     </div>
