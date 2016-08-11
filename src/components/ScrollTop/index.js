@@ -21,6 +21,7 @@ export default class scrollTop extends React.Component{
         window.scrollTo(0,0)
     }
     handleScroll(){
+        console.log('scroll')
         if(window.scrollY > 200){
             this.setState({
                 isShowTop:true
@@ -32,6 +33,7 @@ export default class scrollTop extends React.Component{
         }
     }
     render(){
+        console.log(this.state.isShowTop)
         return (
             <div>
                 {

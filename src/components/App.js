@@ -8,6 +8,7 @@ import * as Actions from '../actions'
 import ScrollTop from '../components/ScrollTop'
 import Toaster from '../components/Toaster'
 import Header from '../components/Header'
+import $ from 'jquery'
 
 
 const mapStateToProps = state => {
@@ -39,6 +40,12 @@ export default class App extends React.Component{
         if(auth.token&&!auth.user){
             actions.getUserInfo();
         }
+        window.addEventListener('scroll',function(e){
+            console.log(window.scrollY)
+        })
+        $('body').scroll(function(){
+            console.log('top-box-sc')
+        })
     }
     
     componentWillReceiveProps(nextProps){

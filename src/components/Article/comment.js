@@ -16,7 +16,8 @@ export default class Comment extends React.Component{
         this.handleCommentContentChange = this.handleCommentContentChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this)
         this.showReply = this.showReply.bind(this);
-        this.handleSubmitReply = this.handleSubmitReply.bind(this)
+        this.handleSubmitReply = this.handleSubmitReply.bind(this);
+        this.clearText = this.clearText.bind(this)
     }
     handleCommentContentChange(e){
         this.setState({
@@ -78,6 +79,12 @@ export default class Comment extends React.Component{
         })
     }
 
+    clearText(){
+        this.setState({
+            commentContent:''
+        })
+    }
+
     render(){
         const {commentList,auth,submitComment,openLoginModal} = this.props
         return (
@@ -122,21 +129,45 @@ export default class Comment extends React.Component{
                     )}
                 </div>
                 { auth.token ?
-                    <form className="new_comment" onSubmit={this.handleSubmit(submitComment)}>
-                        <div className="comment-text">
-                        <textarea
-                            maxLength="2000"
-                            required
-                            placeholder="写下你的评论…"
-                            onChange={this.handleCommentContentChange}
-                            id="comment_content"  value={this.state.commentContent}>
 
-                        </textarea>
-                            <div>
+                    <div className="comment-reply">
+                        <a className="reply-avatar" href="javascript:;">
+                            <i className="fa fa-comments"></i>
+                        </a>
+                        <form className="comment-form" onSubmit={this.handleSubmit(submitComment)}>
+                            <div className="comment-text">
+                                <textarea
+                                maxLength="2000"
+                                required
+                                placeholder="写下你的评论…"
+                                onChange={this.handleCommentContentChange}
+                                id="comment_content"  value={this.state.commentContent}>
+
+                                </textarea>
+                            </div>
+                            <div className="button-container">
+                                <button className="btn btn-danger" onCLick={this.clearText}>清空</button>
                                 <input type="submit" id="comment_submit_btn" value="发 表" className="btn btn-info" />
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+
+
+                    // <form className="new_comment" onSubmit={this.handleSubmit(submitComment)}>
+                    //     <div className="comment-text">
+                    //     <textarea
+                    //         maxLength="2000"
+                    //         required
+                    //         placeholder="写下你的评论…"
+                    //         onChange={this.handleCommentContentChange}
+                    //         id="comment_content"  value={this.state.commentContent}>
+                    //
+                    //     </textarea>
+                    //         <div>
+                    //             <input type="submit" id="comment_submit_btn" value="发 表" className="btn btn-info" />
+                    //         </div>
+                    //     </div>
+                    // </form>
                     :
                     <div>
                         <p className="comment-signin">

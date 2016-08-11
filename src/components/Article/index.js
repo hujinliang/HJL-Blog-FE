@@ -102,13 +102,29 @@ export default class Article extends React.Component{
         const {articleDetail,prenextArticle,commentList,auth,sns} = this.props;
         // console.log(commentList)
         return (
-            <div className="article-box">
-                <Content articleDetail={articleDetail}/>
-                <Like toggleLike={this.toggleLike} likeCount={articleDetail.like_count} isLike={articleDetail.isLike}/>
-                <Prenext prenextArticle={prenextArticle}  />
-                <Comment commentList={commentList} auth={auth} submitComment={this.handleSubmitComment} submitReply={this.handleSubmitReply} openLoginModal={this.openLoginModal.bind(this)}/>
-                <LoginModal logins={sns.logins} isShowModal={this.state.showModal} closeModal={this.closeLoginModal.bind(this)}/>
+        <div className="outer-container">
+            <div className="wrap-container">
+                <div className="content-outer">
+                    <div className="content-inner">
+                        <div className="article-box">
+                            <Content articleDetail={articleDetail}/>
+                            <Like toggleLike={this.toggleLike} likeCount={articleDetail.like_count} isLike={articleDetail.isLike}/>
+                            <Prenext prenextArticle={prenextArticle}  />
+                            <Comment commentList={commentList} auth={auth} submitComment={this.handleSubmitComment} submitReply={this.handleSubmitReply} openLoginModal={this.openLoginModal.bind(this)}/>
+                            <LoginModal logins={sns.logins} isShowModal={this.state.showModal} closeModal={this.closeLoginModal.bind(this)}/>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+
+            // <div className="article-box">
+            //     <Content articleDetail={articleDetail}/>
+            //     <Like toggleLike={this.toggleLike} likeCount={articleDetail.like_count} isLike={articleDetail.isLike}/>
+            //     <Prenext prenextArticle={prenextArticle}  />
+            //     <Comment commentList={commentList} auth={auth} submitComment={this.handleSubmitComment} submitReply={this.handleSubmitReply} openLoginModal={this.openLoginModal.bind(this)}/>
+            //     <LoginModal logins={sns.logins} isShowModal={this.state.showModal} closeModal={this.closeLoginModal.bind(this)}/>
+            // </div>
         )
     }
 }
