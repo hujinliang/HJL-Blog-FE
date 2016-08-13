@@ -196,7 +196,10 @@ export default class Comment extends React.Component{
                             
                             <div className="comment-reply hide" ref={'reply_container_'+i}>
                                 <a className="reply-avatar" href="javascript:;">
-                                     <img src={auth.user.avatar || defaultAvatar} />
+                                    {auth.user? <img src={auth.user.avatar || defaultAvatar} />
+                                        : <img src={defaultAvatar} />
+                                    }
+
                                 </a>
                                 <form className="comment-form" ref={'reply_form_'+i} id={'reply_form_'+i} onSubmit={e=>this.handleSubmitReply(e,i,comment._id)}>
                                     <div className="comment-content">
