@@ -35,7 +35,7 @@ export function formatDate(time){
     let day = tmp.getDate();
     let hours = tmp.getHours();
     let minutes = tmp.getMinutes();
-    return year + '.' + month + '.' + day + ' ' + hours + ':' +minutes;
+    return month + '月' + day + '日';
 }
 
 //分离title和content，并处理content中的image地址：![cat](cat.png)
