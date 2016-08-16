@@ -458,7 +458,8 @@ a.like-btn:hover {
 //mine
 .admin-container{
   margin-top:80px;
-
+  position: absolute;
+  width:100%;
   .admin-controller{
     position: fixed;
     top:80px;
@@ -534,6 +535,17 @@ a{
   //background-image:url("../assets/imgs/background.jpg");
   background-size:cover;
   background-position:center center;
+}
+
+.background-admin{
+  position: fixed;
+  z-index:0;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background: #ffffff;
+
 }
 
 .outer-container{
@@ -881,6 +893,38 @@ a{
   width:100%;
   padding:20px 30px;
 }
+
+.liked-btn{
+  outline:none;
+
+  display: block;
+  width:70px;
+  height:70px;
+  margin:0 auto;
+  border:1px solid #cccccc;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;;
+  color: #999;
+  text-align: center;
+  transition: all .5s ease-in;
+  &:hover{
+    background: #dedede;
+  }
+  &:focus,&:hover{
+    text-decoration: none;
+    color: #999;
+  }
+  &.be-liked{
+    color: 	#218868;
+  }
+  i{
+    line-height:70px;
+    font-size:40px;
+    margin-right:0;
+  }
+}
+
 
 .comment-container {
   padding-top:30px;

@@ -85,13 +85,6 @@ export default class PersonalPage extends Component{
                                                     </div>
                                                 </div>
 
-                                                {
-                                                    // <h2>关于</h2>
-                                                    // <p className="personal-content">
-                                                    //     目前在上海读研，主要从事web前端方面的开发，除了完成实验室项目外，在空闲时间会去学一些感兴趣的新知识，写一些个人的项目进行练习。技术方面包括JavaScript/Css/Html5/Jquery/Bootstrap/Nodejs/Angularjs/React等。
-                                                    //     除了写代码外，平时还喜欢看动漫，看电影。
-                                                    // </p>
-                                                }
                                             </div>
                                         </figcaption>
                                     </figure>

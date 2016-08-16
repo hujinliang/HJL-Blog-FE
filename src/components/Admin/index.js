@@ -28,33 +28,39 @@ export default class Admin extends React.Component{
     render(){
         const {children} = this.props;
         return (
-            <div className="container-fluid admin-container">
-                <div className="row">
-                    <div className="admin-controller col-sm-2">
-                        <div className="controller-title">控制台</div>
-                        <div className="controller-menu">
-                            <div className="fix"></div>
-                            <Link className="controller-item" activeClassName="active" title="" to="/admin/articles">
-                                <i className="fa fa-file"></i>文章
-                            </Link>
-                            <div className="fix"></div>
-                            <Link className="controller-item" activeClassName="active" title="" to="/admin/tags">
-                                <i className="fa fa-tags"></i>标签
-                            </Link>
-                            <div className="fix"></div>
-                            <Link className="controller-item" activeClassName="active" title="" to="/admin/users">
-                                <i className="fa fa-user"></i>用户
-                            </Link>
-                            <div className="fix"></div>
-                            <Link className="controller-item" activeClassName="active" title="" to="/admin/comments">
-                                <i className="fa fa-comments"></i>评论
-                            </Link>
-                            <div className="fix"></div>
+            <div>
+                <div className="background-admin">
+
+                </div>
+                <div className="container-fluid admin-container">
+                    <div className="row">
+                        <div className="admin-controller col-sm-2">
+                            <div className="controller-title">控制台</div>
+                            <div className="controller-menu">
+                                <div className="fix"></div>
+                                <Link className="controller-item" activeClassName="active" title="" to="/admin/articles">
+                                    <i className="fa fa-file"></i>文章
+                                </Link>
+                                <div className="fix"></div>
+                                <Link className="controller-item" activeClassName="active" title="" to="/admin/tags">
+                                    <i className="fa fa-tags"></i>标签
+                                </Link>
+                                <div className="fix"></div>
+                                <Link className="controller-item" activeClassName="active" title="" to="/admin/users">
+                                    <i className="fa fa-user"></i>用户
+                                </Link>
+                                <div className="fix"></div>
+                                <Link className="controller-item" activeClassName="active" title="" to="/admin/comments">
+                                    <i className="fa fa-comments"></i>评论
+                                </Link>
+                                <div className="fix"></div>
+                            </div>
                         </div>
+                        {children}
                     </div>
-                    {children}
                 </div>
             </div>
+
         )
     }
 }

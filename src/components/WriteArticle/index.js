@@ -185,35 +185,40 @@ export default class WriteArticle extends React.Component{
         class1 = "col-xs-6";
         class2 = "col-xs-6";
         return (
-            <div id="app">
-                <div className="container-fluid">
-                    <Controller insert={this.tag} save={this.save} changeData={this.changeData} downloadURL={this.state.downloadURL} clearAll={this.clearAll} />
-                    <div className="tag-container clearfix">
-                        {adminTagList.items.length&&adminTagList.items.map((item,index) =>
-                            <div className="tag-item" key={index} onClick={e => this.selectTag(e,item._id)}>
-                                {item.name}
-                            </div>
-                        )}
-                        <div className="pull-right">
-                            <form className="form-signin" id="uploadForm" role="form" method="post" enctype='multipart/form-data' action='javascript:;'>
-                                <input id="fulAvatar" name="files" type="file" className="" style={{display:'inline-block'}}/>
-                                <button id="btnSub" className="btn btn-primary" onClick={this.uploadFile}>上 传</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div className="row work-container">
-                        <div className={class1}>
-                            <div className="page editor">
-                                <p className="title">编辑栏</p>
-                                <hr/>
-                                <textarea ref="input" id="marking" value={this.state.text} onChange={this.changeValue}></textarea>
+            <div style={{height:'100%'}}>
+                <div className="background-admin">
+
+                </div>
+                <div id="app">
+                    <div className="container-fluid">
+                        <Controller insert={this.tag} save={this.save} changeData={this.changeData} downloadURL={this.state.downloadURL} clearAll={this.clearAll} />
+                        <div className="tag-container clearfix">
+                            {adminTagList.items.length&&adminTagList.items.map((item,index) =>
+                                <div className="tag-item" key={index} onClick={e => this.selectTag(e,item._id)}>
+                                    {item.name}
+                                </div>
+                            )}
+                            <div className="pull-right">
+                                <form className="form-signin" id="uploadForm" role="form" method="post" enctype='multipart/form-data' action='javascript:;'>
+                                    <input id="fulAvatar" name="files" type="file" className="" style={{display:'inline-block'}}/>
+                                    <button id="btnSub" className="btn btn-primary" onClick={this.uploadFile}>上 传</button>
+                                </form>
                             </div>
                         </div>
-                        <div className={class2}>
-                            <div className="page">
-                                <p className="title">预览栏</p>
-                                <hr/>
-                                <div id="markdown-content" className="markdown-content" ref="output" dangerouslySetInnerHTML={{__html: markIt(this.state.text)}}></div>
+                        <div className="row work-container">
+                            <div className={class1}>
+                                <div className="page editor">
+                                    <p className="title">编辑栏</p>
+                                    <hr/>
+                                    <textarea ref="input" id="marking" value={this.state.text} onChange={this.changeValue}></textarea>
+                                </div>
+                            </div>
+                            <div className={class2}>
+                                <div className="page">
+                                    <p className="title">预览栏</p>
+                                    <hr/>
+                                    <div id="markdown-content" className="markdown-content" ref="output" dangerouslySetInnerHTML={{__html: markIt(this.state.text)}}></div>
+                                </div>
                             </div>
                         </div>
                     </div>
