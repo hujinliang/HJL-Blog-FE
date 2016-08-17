@@ -5,7 +5,7 @@ import {combineReducers} from 'redux'
 import apps from './apps'
 import {reducer as formReducer} from 'redux-form'
 import {routerReducer} from 'react-router-redux'
-import globalVal from './globalVal'
+
 import showmsg from './showmsg'
 import auth from './auth'
 import sns from './sns'
@@ -22,7 +22,6 @@ const rootReducer = combineReducers({
     apps,
     form:formReducer,
     routing:routerReducer,
-    globalVal:globalVal,
     showmsg,
     auth,
     sns,

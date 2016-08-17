@@ -14,7 +14,6 @@ import $ from 'jquery'
 const mapStateToProps = state => {
     // console.log(state.globalVal.toJS())
     return {
-        globalVal:state.globalVal.toJS(),
         showmsg:state.showmsg.toJS(),
         auth:state.auth.toJS()
     }
@@ -49,20 +48,15 @@ export default class App extends React.Component{
     }
     
     componentWillReceiveProps(nextProps){
-        const {globalVal} = this.props;
-
-        if(globalVal.styleMode !== nextProps.globalVal.styleMode)
-        {
-            document.body.className = nextProps.globalVal.styleMode
-        }    
+            
     }
     
     render(){
       
-        const {showmsg,globalVal,actions,children,location,auth} = this.props;
+        const {showmsg,actions,children,location,auth} = this.props;
         return (
             <div className="main-container">
-                <Header styleMode={globalVal.styleMode} changeStyleMode={actions.changeStyleMode} location={location} auth={auth} logout={actions.logout}/>
+                <Header changeStyleMode={actions.changeStyleMode} location={location} auth={auth} logout={actions.logout}/>
                 {children}
                 <Toaster msg={showmsg} hideMsg={actions.hideMsg} />
                 <ScrollTop />

@@ -15,7 +15,6 @@ import {getCookie} from '../../utiles/authService'
 const mapStateToProps = (state) => {
 
   return {
-      globalVal:state.globalVal.toJS(),
       tagList:state.tagList.toJS(),
       articleList:state.articleList.toJS(),
       options:state.options.toJS(),
@@ -69,7 +68,7 @@ export default class Home extends Component{
     }
 
     render(){
-        const {globalVal,tagList,articleList,options} = this.props;
+        const {tagList,articleList,options} = this.props;
 
         return (
 

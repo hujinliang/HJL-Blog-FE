@@ -14,7 +14,7 @@ export default class Header extends React.Component{
         this.state = {
             isDown:true
         };
-        this.handleChangeMode = this.handleChangeMode.bind(this);
+
         this.handleScroll = this.handleScroll.bind(this);
     }
     componentDidMount(){
@@ -31,13 +31,9 @@ export default class Header extends React.Component{
             })
         }
     }
-    handleChangeMode(e){
-        e.preventDefault();
-        const {changeStyleMode} = this.props;
-        changeStyleMode();
-    }
+
     render(){
-        const {styleMode,location,auth,logout} = this.props;
+        const {location,auth,logout} = this.props;
         // console.log(auth)
         return (
             <div className="absolute-wrap">
@@ -87,96 +83,6 @@ export default class Header extends React.Component{
                 
             </div>
 
-            // <div className="navbar-box navbar-skin">
-            //     <div className="wrap">
-            //         <div className="contents clearfix">
-            //             <div className="navbar-menu">
-            //                 <Link className={'navbar-item logo '+(location.pathname !== '/personal'&&location.pathname !== '/admin'&&location.pathname !== '/admin/articles'&&location.pathname !== '/admin/tags'&&location.pathname !== '/admin/users'&&location.pathname !== '/admin/comments'&&'active')} title="首页" to="/">
-            //                     HU
-            //                 </Link>
-            //                 <Link className={'navbar-item'} activeClassName="active" title="personal" to="/personal">
-            //                     <i className="fa fa-user"></i>
-            //                 </Link>
-            //                 {auth.token&&auth.user&&auth.user.role === 'admin'&&
-            //                 <Link className={'navbar-item'} activeClassName="active" title="admin" to="/admin">
-            //                     <i className="fa fa-envira"></i>
-            //                 </Link>
-            //                 }
-            //
-            //             </div>
-            //
-            //             <div className="navbar-expanded">
-            //                 <a href="javascript:" className="navbar-mode" onClick={this.handleChangeMode}>
-            //                     {(styleMode === 'day-mode')?<i className="fa fa-sun-o"></i>:<i className="fa fa-moon-o"></i>}
-            //                 </a>
-            //                 {(auth.token && auth.user)?
-            //                     <div>
-            //                         <a href="javascript:" className="navbar-item expanded-logout" onClick={logout}>
-            //                             <i className="fa fa-sign-out"></i>登出
-            //                         </a>
-            //                         <Link to="/setting" className="navbar-user" title={auth.user.nickname}>
-            //                             <img src={auth.user.avatar || defaultAvatar}/>
-            //                         </Link>
-            //                     </div>
-            //                     :
-            //                     <Link to="/login" className="navbar-item" activeClassName="active">
-            //                         <i className="fa fa-sign-in"></i>登录
-            //                     </Link>
-            //
-            //                 }
-            //
-            //             </div>
-            //         </div>
-            //     </div>
-            //
-            // </div>
-
-
-
-
-            // <div className="navbar-box navbar-skin">
-            //     <div className="wrap">
-            //         <div className="contents clearfix">
-            //             <div className="navbar-menu">
-            //                 <Link className={'navbar-item logo '+(location.pathname !== '/personal'&&location.pathname !== '/admin'&&location.pathname !== '/admin/articles'&&location.pathname !== '/admin/tags'&&location.pathname !== '/admin/users'&&location.pathname !== '/admin/comments'&&'active')} title="首页" to="/">
-            //                     HU
-            //                 </Link>
-            //                 <Link className={'navbar-item'} activeClassName="active" title="personal" to="/personal">
-            //                     <i className="fa fa-user"></i>
-            //                 </Link>
-            //                 {auth.token&&auth.user&&auth.user.role === 'admin'&&
-            //                     <Link className={'navbar-item'} activeClassName="active" title="admin" to="/admin">
-            //                         <i className="fa fa-envira"></i>
-            //                      </Link>
-            //                 }
-            //
-            //             </div>
-            //
-            //             <div className="navbar-expanded">
-            //                     <a href="javascript:" className="navbar-mode" onClick={this.handleChangeMode}>
-            //                         {(styleMode === 'day-mode')?<i className="fa fa-sun-o"></i>:<i className="fa fa-moon-o"></i>}
-            //                     </a>
-            //                 {(auth.token && auth.user)?
-            //                     <div>
-            //                         <a href="javascript:" className="navbar-item expanded-logout" onClick={logout}>
-            //                             <i className="fa fa-sign-out"></i>登出
-            //                         </a>
-            //                         <Link to="/setting" className="navbar-user" title={auth.user.nickname}>
-            //                             <img src={auth.user.avatar || defaultAvatar}/>
-            //                         </Link>
-            //                     </div>
-            //                     :
-            //                     <Link to="/login" className="navbar-item" activeClassName="active">
-            //                         <i className="fa fa-sign-in"></i>登录
-            //                     </Link>
-            //
-            //                 }
-            //
-            //             </div>
-            //         </div>
-            //     </div>
-            //
-            // </div>
         )
     }
 }
