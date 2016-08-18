@@ -8,8 +8,8 @@
       "out_file"   : "./logs/pm2-out.log",
       "error_file" : "./logs/pm2-err.log",
       "env":{
-        "NODE_ENV":"development",
-        "PORT":8000
+        "NODE_ENV":"production",
+        "PORT":8300
       }
     }
   ]

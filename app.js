@@ -5,7 +5,6 @@ process.env.NODE_ENV = process.env.NODE_ENV||'development'
 var path = require('path');
 var express = require('express');
 var favicon = require('serve-favicon');
-// var serverRender = require('./dist/server.js')
 
 var app = express();
 var port =  process.env.PORT||4000;
@@ -26,5 +25,5 @@ app.listen(port,function(err){
     if(err){
         console.log(err)
     }
-    console.log('listening on http://localhost:%s/',port);
+    console.log('listening on http://localhost:%s/ and in %s',port,process.env.NODE_ENV);
 })

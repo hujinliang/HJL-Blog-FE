@@ -7,6 +7,9 @@ import {API_ROOT} from '../config'
 import {getCookie,signOut} from '../utiles/authService'
 
 axios.defaults.baseURL = API_ROOT;
+
+console.log(API_ROOT)
+
 axios.defaults.withCredentials = true;
 
 axios.interceptors.request.use(function(config){

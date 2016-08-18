@@ -4,14 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --sequential build start-prod",
-    "dev": "npm-run-all --sequential build-server:dev start-dev",
-    "build": "npm-run-all clean --parallel build-all:prod",
-    "build-server:dev": "better-npm-run build-dev-server",
-    "build-all:prod": "better-npm-run build-prod",
-    "start-dev": "better-npm-run nodemon-dev",
-    "start-prod": "better-npm-run node-prod",
-    "clean": "rimraf dist",
+    "start":"webpack --color --config ./webpack.config.production.js && pm2 start process.json",
+    "dev":"node server.js",
     "pm2-start": "pm2 start process.json",
     "pm2-restart": "pm2 restart process.json"
   },
