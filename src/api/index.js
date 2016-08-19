@@ -26,9 +26,6 @@ export default {
         return MobileResource('get','getApps')
     },
     //article
-    getIndexImage:function () {
-        return ArticleResource('get', 'getIndexImage')
-    },
     getArticleList:function (options) {
         return ArticleResource('get', 'getFrontArticleList', null, {params:options})
     },

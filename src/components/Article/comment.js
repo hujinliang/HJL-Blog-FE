@@ -60,31 +60,7 @@ export default class Comment extends React.Component{
                 })
                 
             }
-
-
-
-            // const eleForm = this.refs['reply_form_'+k];
-            // const eleTextarea = eleForm.getElementsByTagName('textarea')[0];
-            // if(eleForm.className.indexOf('hide') != -1){
-            //     eleForm.className = 'new-reply';
-            //     eleTextarea.focus();
-            //     this.refs['replyContent'+k].value = '@' + nickname + ' ';
-
-            //     var oldOpened = this.state.openedForm;
-            //     if(oldOpened !== null){
-            //         this.refs['reply_form_'+oldOpened].className += ' hide';
-            //     }
-            //     this.setState({
-            //         openedForm:k
-            //     })
-
-            // }else{
-            //     eleForm.className += ' hide';
-            //     this.setState({
-            //         openedForm:null
-            //     })
-                
-            // }
+            
         }else{
             const {openLoginModal} = this.props;
             openLoginModal()
@@ -142,23 +118,6 @@ export default class Comment extends React.Component{
                             </div>
                         </form>
                     </div>
-
-
-                    // <form className="new_comment" onSubmit={this.handleSubmit(submitComment)}>
-                    //     <div className="comment-text">
-                    //     <textarea
-                    //         maxLength="2000"
-                    //         required
-                    //         placeholder="写下你的评论…"
-                    //         onChange={this.handleCommentContentChange}
-                    //         id="comment_content"  value={this.state.commentContent}>
-                    //
-                    //     </textarea>
-                    //         <div>
-                    //             <input type="submit" id="comment_submit_btn" value="发 表" className="btn btn-info" />
-                    //         </div>
-                    //     </div>
-                    // </form>
                     :
                     <div>
                         <p className="comment-signin">

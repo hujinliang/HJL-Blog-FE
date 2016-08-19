@@ -5,7 +5,6 @@ import React,{Component} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as Actions from '../../actions'
-import Sidebar from './sidebar'
 import Tags from './tags'
 import Articles from './article'
 import Footer from './footer'
@@ -93,22 +92,7 @@ export default class Home extends Component{
                     <Footer />
                 </div>
             </div>
-
-            // <div>
-            //     <div className="container-fluid main-box">
-            //         <div className="row">
-            //             <Sidebar img={globalVal.indexImg}/>
-            //             <div className="col-sm-7 col-sm-offset-3 main-content">
-            //                 <Tags tagList={tagList} options={options} isFetching={articleList.isFetching} changeSort={this.handleChange}/>
-            //                 <Articles articleList={articleList.items}/>
-            //                 {(articleList.items.length > 0&&
-            //                     <LoadMore options={options} isMore={articleList.isMore} isFetching={articleList.isFetching} addData={this.handleChange}/>
-            //                 )}
-            //             </div>
-            //         </div>
-            //         <Footer />
-            //     </div>
-            // </div>
+            
         )
     }
 }
