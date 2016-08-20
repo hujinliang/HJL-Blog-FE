@@ -1,6 +1,9 @@
 /**
  * Created by lenovo on 2016/7/23.
  */
+import {API_ROOT} from '../config.js'
+
+
 export function customTime(item){
     let nowTime = new Date().getTime();
     let minuteTime = 60*1000;
@@ -56,7 +59,7 @@ export function parseArticle(text){
 
     
     content = content.replace(/([^\(]*\.(jpe?g|png|gif))(?=\))/g,function(match,$1,$2){
-        return 'http://localhost:9000/upload/' + match
+        return API_ROOT + 'upload/' + match
     });
     
     return {

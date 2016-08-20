@@ -5,12 +5,16 @@ import cookie from 'react-cookie'
 import {CookieDomain} from '../config'
 
 let cookieConfig = {
-    path:'/'
+
 };
+
+if(CookieDomain !== ''){
+    cookieConfig = { domain: CookieDomain }
+}
 
 export function saveCookie(name,value){
    
-    cookie.save(name,value,{});
+    cookie.save(name,value,cookieConfig);
     
 }
 
@@ -20,17 +24,17 @@ export function getCookie(name){
 
 export function removeCookie(name){
 
-    cookie.remove(name,{});
+    cookie.remove(name,cookieConfig);
 
 }
 
 export function signOut(){
-    cookie.remove('role',{path:'/'});
-    cookie.remove('role',{path:'/article'})
-    cookie.remove('role',{path:'/admin'})
-    cookie.remove('token',{path:'/'});
-    cookie.remove('token',{path:'/article'});
-    cookie.remove('token',{path:'/admin'})
+    cookie.remove('role',{domain: CookieDomain,path:'/'});
+    cookie.remove('role',{domain: CookieDomain,path:'/article'})
+    cookie.remove('role',{domain: CookieDomain,path:'/admin'})
+    cookie.remove('token',{domain: CookieDomain,path:'/'});
+    cookie.remove('token',{domain: CookieDomain,path:'/article'});
+    cookie.remove('token',{domain: CookieDomain,path:'/admin'})
     
 }
 

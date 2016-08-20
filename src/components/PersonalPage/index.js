@@ -3,6 +3,7 @@
  */
 import React,{Component} from 'react'
 import defaultImage from '../../assets/imgs/background.jpg'
+import hjlAvatar from '../../assets/imgs/cat.jpg'
 
 export default class PersonalPage extends Component{
     constructor(props){
@@ -40,7 +41,7 @@ export default class PersonalPage extends Component{
                                         <figcaption>
                                             <div className="img-back" onClick={this.handleClick}>
                                                 <div className="personal-header">
-                                                    <img src={defaultImage} alt="avatar"/>
+                                                    <img src={hjlAvatar} alt="avatar"/>
                                                 </div>
                                                 <div className="personal-container">
                                                     <div className="personal-context">
@@ -49,7 +50,7 @@ export default class PersonalPage extends Component{
                                                         </div>
                                                         <div className="personal-content">
                                                             <p>
-                                                                上海XX大学在读研究生
+                                                                在读研究生
                                                             </p>
                                                         </div>
                                                     </div>
@@ -69,7 +70,7 @@ export default class PersonalPage extends Component{
                                                         </div>
                                                         <div className="personal-content">
                                                             <p>
-                                                                平时除了看书以及写代码外，还喜欢看动漫和看电影
+                                                                平时除了看书以及写代码外，还喜欢看动漫,听歌和看电影
                                                             </p>
                                                         </div>
                                                     </div>

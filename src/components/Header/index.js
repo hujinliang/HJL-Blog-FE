@@ -5,7 +5,7 @@ import React from 'react'
 import {Link} from 'react-router'
 import {Dropdown} from 'react-bootstrap'
 import defaultAvatar from '../../assets/imgs/userimg.png'
-import hjlAvatar from '../../assets/imgs/background.jpg'
+import hjlAvatar from '../../assets/imgs/cat.jpg'
 
 
 export default class Header extends React.Component{

@@ -11,6 +11,7 @@ import {connect} from 'react-redux'
 import * as actions from '../../actions'
 import {parseArticle} from '../../utiles'
 import $ from 'jquery'
+import {API_ROOT} from '../../config'
 
 const mapStateToProps = (state) => {
     return {
@@ -155,8 +156,11 @@ export default class WriteArticle extends React.Component{
     uploadFile(){
         const {actions} = this.props;
         var formData = new FormData($("#uploadForm")[0]);
+
+        let url = API_ROOT + 'article/upload';
+        
         $.ajax({
-            url: 'http://localhost:9000/article/upload',
+            url: url,
             type: 'POST',
             data: formData,
             async: false,
