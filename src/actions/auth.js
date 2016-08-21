@@ -46,7 +46,11 @@ export function loginSuccess(token){
 
 export const getUserInfo = (token = getCookie('token'))=> {
     return (dispatch,getState) => {
-        return api.getMe()
+        return api.getMe({
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
             .then(response => ({json:response.data,status:response.statusText}))
             .then(({json,status}) => {
 

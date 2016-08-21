@@ -5,7 +5,7 @@ import cookie from 'react-cookie'
 import {CookieDomain} from '../config'
 
 let cookieConfig = {
-
+    expires:new Date((new Date).valueOf() + 24*60*60*1000)
 };
 
 if(CookieDomain !== ''){
