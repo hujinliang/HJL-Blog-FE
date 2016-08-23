@@ -4,7 +4,7 @@
 这是HJL-Blog个人博客的前端部分，使用React+ReactRouter+Redux+ES6+Webpack进行开发。
 
 ## 基本功能
-用户可以通过第三方账户登录博客，对博客进行评论等操作，管理员登录后可以对文章，评论等内容进行操作，此外管理员可以在博客中使用内置的markdown编辑器（[Markdown-editor](https://hjl-markdown-editor.herokuapp.com/))）完成新的博客并发布出来。
+用户可以通过第三方账户登录博客，对博客进行评论等操作，管理员登录后可以对文章，评论等内容进行操作，此外管理员可以在博客中使用内置的markdown编辑器（[Markdown-editor](https://github.com/HUJINLIANG/markdown-editor))）完成新的博客并发布出来。
 
 ##使用
 
