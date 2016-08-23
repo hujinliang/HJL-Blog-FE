@@ -40,7 +40,7 @@ $ npm start
 ![5](./screenshots/5.png)
 ![6](./screenshots/6.png)
 
-项目demo：[HJL-Blog](blog.hjlclould.cn)
+项目demo：[HJL-Blog](http://blog.hjlclould.cn/)
 
 ### License
 MIT
